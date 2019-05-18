@@ -1,0 +1,16 @@
+{
+  "name": "hillcitymnag",
+  "version": 2,
+  "alias": "www.hillcitymnag.church",
+  "regions": ["oma1"],
+  "env": {
+    "HCAG_SENTRY_DSN": "@hcag-sentry-dsn"
+  },
+  "builds": [{"src": "api/sermons/index.js", "use": "@now/node"}],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/api/$1"
+    }
+  ]
+}

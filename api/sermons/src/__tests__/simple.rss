@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss
+  xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
+  xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+  <channel>
+    <atom:link href="http://www.buzzsprout.com/140598.rss" rel="self" type="application/rss+xml" />
+    <title>Podcast Title</title>
+    <lastBuildDate>Sun, 05 Feb 2017 19:40:24 -0500</lastBuildDate>
+    <link></link>
+    <language>en-us</language>
+    <copyright>&#x2117; &amp; &#xA9; 2017 Podcast Title</copyright>
+    <itunes:subtitle>
+      <![CDATA[Podcast description]]>
+    </itunes:subtitle>
+    <itunes:author>Podcast Author</itunes:author>
+    <itunes:summary>
+      <![CDATA[Podcast description]]>
+    </itunes:summary>
+    <itunes:explicit>no</itunes:explicit>
+    <description>
+      <![CDATA[Podcast description]]>
+    </description>
+    <itunes:owner>
+      <itunes:name>Podcast Owner</itunes:name>
+      <itunes:email>owner@podcast.com</itunes:email>
+    </itunes:owner>
+    <itunes:image href="http://www.buzzsprout.com/podcasts/26903/artworks_large.jpg?1486339015" />
+    <itunes:category text="Podcast Category" />
+    <item>
+      <title>Episode Title</title>
+      <description>
+        <![CDATA[Episode description]]>
+      </description>
+      <itunes:image href="http://www.buzzsprout.com/podcasts/26903/artworks_large.jpg?1486336949" />
+      <itunes:author>Podcast Author</itunes:author>
+      <itunes:subtitle>
+        <![CDATA[Episode description]]>
+      </itunes:subtitle>
+      <itunes:summary>
+        <![CDATA[Episode description]]>
+      </itunes:summary>
+      <enclosure url="http://www.buzzsprout.com/26903/471812-episode-title.mp3" length="12619568" type="audio/mpeg" />
+      <guid isPermaLink="false">Buzzsprout-471812</guid>
+      <pubDate>Sun, 05 Feb 2017 03:00:00 -0500</pubDate>
+      <itunes:duration>1577</itunes:duration>
+      <itunes:keywords></itunes:keywords>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,92 @@
+{
+  "private": true,
+  "name": "hillcitymnag",
+  "description": "Monorepo for https://hillcitymnag.church",
+  "repository": "https://github.com/bmealhouse/hillcitymnag.git",
+  "author": "Brent Mealhouse <bmealhouse@gmail.com>",
+  "license": "MIT",
+  "workspaces": [
+    "api/*",
+    "www"
+  ],
+  "bolt": {
+    "workspaces": [
+      "api/*",
+      "www"
+    ]
+  },
+  "scripts": {
+    "deploy": "now",
+    "dev": "now dev",
+    "test": "bolt ws run test"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "xo && yarn test"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "xo",
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "jest": {
+    "collectCoverage": true,
+    "testEnvironment": "node",
+    "verbose": true
+  },
+  "prettier": {
+    "useTabs": false,
+    "semi": false,
+    "singleQuote": true,
+    "trailingComma": "all",
+    "bracketSpacing": false
+  },
+  "renovate": {
+    "automerge": true,
+    "automergeType": "branch-push",
+    "pinVersions": true,
+    "schedule": [
+      "every friday"
+    ]
+  },
+  "xo": {
+    "envs": [
+      "jest"
+    ],
+    "prettier": true,
+    "plugins": [
+      "filenames"
+    ],
+    "rules": {
+      "capitalized-comments": "off",
+      "no-unused-vars": [
+        "error",
+        {
+          "ignoreRestSiblings": true,
+          "argsIgnorePattern": "^_",
+          "varsIgnorePattern": "^_"
+        }
+      ],
+      "filenames/match-exported": [
+        "error",
+        "kebab",
+        "^__"
+      ]
+    }
+  },
+  "devDependencies": {
+    "bolt": "0.23.3",
+    "eslint": "5.16.0",
+    "eslint-plugin-filenames": "1.3.2",
+    "husky": "2.3.0",
+    "jest": "24.8.0",
+    "lint-staged": "8.1.7",
+    "now": "15.2.0",
+    "prettier": "1.17.1",
+    "xo": "0.24.0"
+  }
+}
