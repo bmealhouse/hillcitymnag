@@ -4,11 +4,14 @@
   "alias": "www.hillcitymnag.church",
   "regions": ["oma1"],
   "env": {
+    "HCAG_DEPLOYMENT_TOKEN": "@hcag-deployment-token",
     "HCAG_SENDGRID_API_KEY": "@hcag-sendgrid-api-key",
-    "HCAG_SENTRY_DSN": "@hcag-sentry-dsn"
+    "HCAG_SENTRY_DSN": "@hcag-sentry-dsn",
+    "HCAG_ZEIT_TOKEN": "@hcag-zeit-token"
   },
   "builds": [
     {"src": "api/contact/index.js", "use": "@now/node"},
+    {"src": "api/deploy/index.js", "use": "@now/node"},
     {"src": "api/sermons/index.js", "use": "@now/node"}
   ],
   "routes": [
