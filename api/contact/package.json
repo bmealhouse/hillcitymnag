@@ -1,0 +1,32 @@
+{
+  "name": "hillcitymnag-contact",
+  "version": "1.0.0",
+  "description": "Send Hill City Assembly of God contact email using SendGrid's API",
+  "author": "Brent Mealhouse <bmealhouse@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "micro-dev",
+    "start": "micro",
+    "test": "jest"
+  },
+  "jest": {
+    "collectCoverage": true,
+    "testEnvironment": "node",
+    "verbose": true
+  },
+  "dependencies": {
+    "joi": "10.6.0",
+    "micro": "8.0.3",
+    "micro-cors": "0.0.4",
+    "micro-post": "1.0.0",
+    "micro-sentry": "1.2.0",
+    "node-fetch": "1.7.2",
+    "sendgrid": "5.2.2"
+  },
+  "devDependencies": {
+    "jest": "24.8.0",
+    "micro-dev": "1.2.1",
+    "nock": "9.0.14",
+    "test-listen": "1.0.2"
+  }
+}
