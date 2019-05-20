@@ -26,7 +26,10 @@ module.exports = {
     return res.json()
   },
   async now(zeitToken, cwd) {
-    const {stdout} = await exec(`${NOW} --token ${zeitToken}`, {cwd})
+    const {stdout} = await exec(
+      `${NOW} --target production --token ${zeitToken}`,
+      {cwd},
+    )
     return stdout
   },
   verifyDeployment(url) {

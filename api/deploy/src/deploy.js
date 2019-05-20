@@ -3,7 +3,7 @@ const {promisify} = require('util')
 const download = require('download')
 const Raven = require('raven')
 const rimraf = promisify(require('rimraf'))
-const {fetchData, now, verifyDeployment, aliasDeployment} = require('./utils')
+const {fetchData, now} = require('./utils')
 
 const DEPLOY_DIR = path.resolve('/tmp')
 
@@ -19,9 +19,10 @@ module.exports = async (owner, repo) => {
   try {
     // console.log(`Deploying ${owner}/${repo}`)
     await fetchData(cwd)
-    const url = await now(zeitToken, cwd)
-    await verifyDeployment(url)
-    await aliasDeployment(zeitToken, cwd)
+    await now(zeitToken, cwd)
+    // const url = await now(zeitToken, cwd)
+    // await verifyDeployment(url)
+    // await aliasDeployment(zeitToken, cwd)
     Raven.captureMessage(`Deployed ${owner}/${repo}`, {level: 'info'})
   } finally {
     await rimraf(cwd)

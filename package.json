@@ -16,7 +16,8 @@
     ]
   },
   "scripts": {
-    "deploy": "now",
+    "predeploy": "cd www && node fetch-data.js",
+    "deploy": "now --target production",
     "dev": "now dev",
     "dev:fe": "cd www && yarn dev",
     "format": "prettier --write \"**/*.js\"",

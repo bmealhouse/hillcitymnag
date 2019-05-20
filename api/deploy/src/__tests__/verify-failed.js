@@ -23,7 +23,7 @@ const getServer = async () => {
   return {server, url: await listen(server)}
 }
 
-test('204: detected event changes', async () => {
+test.skip('204: detected event changes', async () => {
   expect.assertions(1)
 
   process.env.HCAG_DEPLOYMENT_TOKEN = 'deploy-token'
