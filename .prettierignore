@@ -1,3 +1,7 @@
 coverage
 www/.next
 www/static
+
+**/*.md
+**/*.yml
+package.json
