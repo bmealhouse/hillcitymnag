@@ -3,7 +3,11 @@ import {object} from 'prop-types'
 import {color, mediaQuery} from '../shared/constants'
 
 UpcomingEvent.propTypes = {
-  upcomingEvent: object.isRequired,
+  upcomingEvent: object,
+}
+
+UpcomingEvent.defaultProps = {
+  upcomingEvent: null,
 }
 
 export default function UpcomingEvent({upcomingEvent}) {

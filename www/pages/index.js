@@ -16,7 +16,11 @@ import sermons from '../static/sermons.json'
 export default class extends Component {
   static propTypes = {
     latestSermon: object.isRequired,
-    upcomingEvent: object.isRequired,
+    upcomingEvent: object,
+  }
+
+  static defaultProps = {
+    upcomingEvent: null,
   }
 
   static async getInitialProps() {

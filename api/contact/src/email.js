@@ -9,7 +9,7 @@ module.exports = data => {
     personalizations: [
       {
         to: [{email: 'hillcityagchurch@gmail.com'}],
-        subject: 'Message from https://hillcitymnag.church',
+        subject: 'Message from https://www.hillcitymnag.church',
       },
     ],
     from: {
