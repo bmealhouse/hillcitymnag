@@ -19,6 +19,7 @@
     "react-dom": "16.8.6"
   },
   "devDependencies": {
+    "@babel/core": "7.4.4",
     "prop-types": "15.7.2"
   }
 }

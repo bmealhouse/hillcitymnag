@@ -21,7 +21,7 @@
     "micro-post": "2.0.0",
     "micro-sentry": "1.2.0",
     "node-fetch": "2.3.0",
-    "now": "15.2.0",
+    "now": "15.3.0",
     "raven": "2.6.4",
     "rimraf": "2.6.3"
   },
