@@ -5,9 +5,9 @@
   "author": "Brent Mealhouse <bmealhouse@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "next",
-    "fetch-data": "node fetch-data.js",
-    "now-build": "next build"
+    "dev": "yarn prefetch-data && next",
+    "now-build": "yarn prefetch-data && next build",
+    "prefetch-data": "node prefetch-data.js"
   },
   "dependencies": {
     "@emotion/babel-preset-css-prop": "10.0.9",

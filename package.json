@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "hillcitymnag",
-  "description": "Monorepo for https://hillcitymnag.church",
+  "description": "Monorepo for https://www.hillcitymnag.church",
   "repository": "https://github.com/bmealhouse/hillcitymnag.git",
   "author": "Brent Mealhouse <bmealhouse@gmail.com>",
   "license": "MIT",
@@ -16,8 +16,8 @@
     ]
   },
   "scripts": {
-    "predeploy": "cd www && node fetch-data.js",
-    "deploy": "now --target production",
+    "deploy": "now",
+    "deploy:prod": "now --target production",
     "dev": "now dev",
     "dev:fe": "cd www && yarn dev",
     "format": "prettier --write \"**/*.js\"",

@@ -6,7 +6,6 @@
   "license": "MIT",
   "scripts": {
     "dev": "micro-dev",
-    "start": "micro",
     "test": "jest"
   },
   "jest": {

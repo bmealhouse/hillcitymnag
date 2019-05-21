@@ -1,36 +1,23 @@
-# www.hillcitymnag.church
+# hillcitymnag-website
 
-[![JavaScript Style Guide](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat-square)](http://standardjs.com/)
-[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg?style=flat-square)](http://commitizen.github.io/cz-cli/)
+[![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/sindresorhus/xo)
+[![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
+
+> Source for https://www.hillcitymnag.church
 
 ## Scripts
 
-### `yarn start`
+### `yarn dev`
 
-Runs the application in production mode.  
+Runs the app in development mode using [Next.js](https://nextjs.org/).<br>
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-### `yarn run build`
+### `yarn now-build`
 
-Builds the application for production using [Next.js](https://zeit.co/blog/next).  
-Generates `./next` directory with build artifacts.
+Ensure [Now](https://zeit.co/now) builds a fresh version of the [Next.js](https://nextjs.org/) app.<br>
+Prefetches data and writes to static `.json` files for performance.
 
-### `yarn run commit`
-
-Commit code while enforcing the [Commitizen](http://commitizen.github.io/cz-cli/) conventional changelog standard.  
-Before running this script, add files using `git add`.
-
-### `yarn run dev`
-
-Runs the application in development mode.  
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-### `yarn run lint`
-
-Lint code using [JavaScript Standard Style](http://standardjs.com/).  
-Tries to fix code style errors automatically.
-
-## Updates
+## Maintenance
 
 ### Generate event timestamp
 
