@@ -33,7 +33,7 @@ Automatically updates localhost when a code change is detected.
 
 ### `yarn dev:fe`
 
-Runs the frontend in development mode using [Next.js](https://nextjs.org/).
+Runs the frontend in development mode using [Next.js](https://nextjs.org/).<br>
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ### `yarn test`
