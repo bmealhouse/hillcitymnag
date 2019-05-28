@@ -6,10 +6,10 @@ module.exports = fn => {
   const cors = microCors({
     allowMethods: ['POST'],
     allowHeaders: ['Access-Control-Allow-Origin', 'Content-Type'],
-    origin:
-      process.env.NODE_ENV === 'test'
-        ? '*'
-        : 'https://sandbox.auth0-extend.com',
+    // origin: // defaults to '*'
+    //   process.env.NODE_ENV === 'test'
+    //     ? '*'
+    //     : 'https://sandbox.auth0-extend.com',
   })
 
   if (process.env.NODE_ENV === 'production') {
