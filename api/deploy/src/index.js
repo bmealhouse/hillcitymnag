@@ -6,10 +6,9 @@ const middleware = require('./middleware')
 const validateRequest = require('./validate-request')
 
 module.exports = middleware(async (req, res) => {
-  console.log('> validateRequest(req)', req)
+  console.log('> validateRequest(req)', req.headers)
   validateRequest(req)
 
-  console.log('> diffContent()')
   const hasContentChanged = await diffContent(req)
 
   if (hasContentChanged) {
