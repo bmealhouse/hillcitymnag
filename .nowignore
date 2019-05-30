@@ -1,0 +1,9 @@
+*
+!**/package.json
+!**/.babelrc
+!api/**/*.js
+!www/components
+!www/pages
+!www/shared
+!www/static
+!www/*.js

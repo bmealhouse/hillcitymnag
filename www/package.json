@@ -6,8 +6,9 @@
   "license": "MIT",
   "scripts": {
     "dev": "yarn prefetch-data && next",
-    "now-build": "yarn prefetch-data && next build",
-    "prefetch-data": "node prefetch-data.js"
+    "now-build": "next build",
+    "prefetch-data": "node prefetch-data.js",
+    "test": "echo \"no tests\""
   },
   "dependencies": {
     "@emotion/babel-preset-css-prop": "10.0.9",

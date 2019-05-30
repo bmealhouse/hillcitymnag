@@ -3,8 +3,6 @@ const post = require('micro-post')
 const microSentry = require('micro-sentry')
 
 module.exports = fn => {
-  console.log('--- INCOMING REQUEST ---')
-
   const cors = microCors({
     allowMethods: ['POST'],
     allowHeaders: ['Access-Control-Allow-Origin', 'Content-Type'],
