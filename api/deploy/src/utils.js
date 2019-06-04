@@ -18,8 +18,10 @@ module.exports = {
     hash.update(text)
     return hash.digest('hex')
   },
-  async fetchData(cwd) {
-    await exec('node fetch-data.js', {cwd})
+  async prefetchData(cwd) {
+    await exec('node prefetch-data.js', {
+      cwd: path.join(cwd, 'www'),
+    })
   },
   async fetchJson(url) {
     const res = await fetch(url)
