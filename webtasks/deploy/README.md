@@ -38,7 +38,7 @@ wt logs -v
 ### Production Scheduling
 
 ```sh
-wt cron create --name hillcitymnag-deploy-webtask --secret HCAG_DEPLOYMENT_TOKEN=$HCAG_DEPLOYMENT_TOKEN --schedule "0 */3 * * *" --tz "America/Chicago" ./deploy.js
+wt cron create --name hillcitymnag-deploy-webtask --secret HCAG_DEPLOYMENT_TOKEN=$HCAG_DEPLOYMENT_TOKEN --schedule "0 */3 * * 0,1,2" --tz "America/Chicago" ./deploy.js
 ```
 
-> At minute 0 past every 3rd hour.
+> Every 3 hours, only on Sunday, Monday, and Tuesday
