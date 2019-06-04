@@ -1,26 +1,8 @@
 [
   {
-    "name": "Good Friday Service",
+    "name": "Coffee &",
     "description": "",
-    "startTime": 1555714800000,
-    "endTime": null,
-    "place": {
-      "name": "Hill City Assembly of God",
-      "location": {
-        "city": "Hill City",
-        "country": "United States",
-        "latitude": 46.99181,
-        "longitude": -93.59693,
-        "state": "MN",
-        "street": "PO Box 219 102 Lake Ave",
-        "zip": "55748"
-      }
-    }
-  },
-  {
-    "name": "Community Easter Event",
-    "description": "",
-    "startTime": 1554573600000,
+    "startTime": 1560783600000,
     "endTime": null,
     "place": {
       "name": "Hill City Assembly of God",
