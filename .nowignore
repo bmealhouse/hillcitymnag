@@ -1,5 +1,6 @@
 # project
 .next
+node_modules
 webtasks
 
 # tests
@@ -11,18 +12,3 @@ __tests__
 .prettierignore
 .travis.yml
 .yarnrc
-
-# we need api/deploy/node_modules/.bin/now for automatic deployments
-# so ignoring node_modules is a bit funky
-/node_modules
-/api/contact/node_modules
-/api/deploy/node_modules/.bin/jest
-/api/deploy/node_modules/.bin/micro
-/api/deploy/node_modules/.bin/micro-dev
-/api/deploy/node_modules/.bin/raven
-/api/deploy/node_modules/.bin/rimraf
-/api/deploy/node_modules/@types
-/api/deploy/node_modules/jest-diff
-/api/deploy/node_modules/micro-post
-/api/sermons/node_modules
-/www/node_modules
