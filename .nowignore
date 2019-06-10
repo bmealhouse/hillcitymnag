@@ -1,6 +1,16 @@
+.next
 node_modules
-!node_modules/.bin/now
+webtasks
+
+# tests
+__mocks__
+__tests__
+
+# misc
 .editorconfig
 .prettierignore
 .travis.yml
 .yarnrc
+
+# need this for automatic deployments
+!api/deploy/node_modules/.bin/now
