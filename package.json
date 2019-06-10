@@ -31,7 +31,7 @@
     }
   },
   "lint-staged": {
-    "*": [
+    "*.ignore": [
       "yarn prefetch-data",
       "git add"
     ],
