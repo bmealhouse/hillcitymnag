@@ -23,8 +23,7 @@ module.exports = async (owner, repo) => {
 
     Raven.captureMessage(`Deployed ${owner}/${repo}`, {level: 'info'})
   } catch (error) {
-    console.log(error)
-    Raven.captureException(error)
+    // Raven.captureException(error)
     throw error
   } finally {
     await rimraf(cwd)
