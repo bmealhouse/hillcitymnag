@@ -60,7 +60,7 @@ export default class extends Component {
     }
 
     fetch('/api/contact', options)
-      .then(() => this.setCompletedState()) // eslint-disable-line promise/prefer-await-to-then
+      .then(() => this.setCompletedState())
       .catch(() => this.setErrorState())
 
     event.preventDefault()
