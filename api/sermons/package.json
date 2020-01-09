@@ -4,6 +4,9 @@
   "description": "Expose Buzzsprout RSS feed data for Hill City Assembly of God sermons",
   "author": "Brent Mealhouse <bmealhouse@gmail.com>",
   "license": "MIT",
+  "engines": {
+    "node": "12.x"
+  },
   "scripts": {
     "dev": "micro-dev",
     "test": "jest"

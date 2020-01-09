@@ -4,6 +4,9 @@
   "description": "Source for https://www.hillcitymnag.church",
   "author": "Brent Mealhouse <bmealhouse@gmail.com>",
   "license": "MIT",
+  "engines": {
+    "node": "12.x"
+  },
   "scripts": {
     "dev": "yarn prefetch-data && next",
     "now-build": "next build",

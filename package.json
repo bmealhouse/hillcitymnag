@@ -5,9 +5,6 @@
   "repository": "https://github.com/bmealhouse/hillcitymnag.git",
   "author": "Brent Mealhouse <bmealhouse@gmail.com>",
   "license": "MIT",
-  "engines": {
-    "node": "12.x"
-  },
   "workspaces": [
     "api/*",
     "www"

@@ -4,6 +4,9 @@
   "description": "Send Hill City Assembly of God contact email using SendGrid's API",
   "author": "Brent Mealhouse <bmealhouse@gmail.com>",
   "license": "MIT",
+  "engines": {
+    "node": "12.x"
+  },
   "scripts": {
     "dev": "micro-dev",
     "test": "jest"

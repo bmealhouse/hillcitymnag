@@ -4,6 +4,9 @@
   "description": "Use Zeit's Now to deploy Hill City Assembly of God website",
   "author": "Brent Mealhouse <bmealhouse@gmail.com>",
   "license": "MIT",
+  "engines": {
+    "node": "12.x"
+  },
   "scripts": {
     "dev": "micro-dev",
     "test": "jest"
