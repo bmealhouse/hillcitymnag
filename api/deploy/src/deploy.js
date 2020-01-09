@@ -22,10 +22,11 @@ module.exports = async (owner, repo) => {
     await now(zeitToken, cwd)
 
     Raven.captureMessage(`Deployed ${owner}/${repo}`, {level: 'info'})
-  } catch (error) {
-    // Raven.captureException(error)
-    throw error
   } finally {
+    // catch (error) {
+    // Raven.captureException(error)
+    // throw error
+    // }
     await rimraf(cwd)
   }
 }
