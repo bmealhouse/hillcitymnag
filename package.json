@@ -31,10 +31,6 @@
     }
   },
   "lint-staged": {
-    "*": [
-      "yarn prefetch-data",
-      "git add"
-    ],
     "*.js": [
       "xo",
       "prettier --write",
@@ -66,7 +62,7 @@
       "jest"
     ],
     "ignores": [
-      "www/static/**"
+      "original-www/static/**"
     ],
     "prettier": true,
     "plugins": [
