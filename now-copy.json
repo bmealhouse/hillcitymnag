@@ -1,0 +1,22 @@
+{
+  "name": "hillcitymnag",
+  "version": 2,
+  "alias": ["www.hillcitymnag.church", "hillcitymnag.church"],
+  "regions": ["cle1"],
+  "env": {
+    "HCAG_DEPLOYMENT_TOKEN": "@hcag-deployment-token",
+    "HCAG_SENDGRID_API_KEY": "@hcag-sendgrid-api-key",
+    "HCAG_SENTRY_DSN": "@hcag-sentry-dsn",
+    "HCAG_ZEIT_TOKEN": "@hcag-zeit-token"
+  },
+  "builds": [
+    {"src": "www/package.json", "use": "@now/next"},
+    {"src": "api/contact/index.js", "use": "@now/node"},
+    {"src": "api/deploy/index.js", "use": "@now/node"},
+    {"src": "api/sermons/index.js", "use": "@now/node"}
+  ],
+  "routes": [
+    {"src": "/api/(.*)", "dest": "/api/$1"},
+    {"src": "/(.*)", "dest": "/www/$1"}
+  ]
+}

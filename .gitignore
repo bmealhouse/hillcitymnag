@@ -1,10 +1,13 @@
-coverage
-node_modules
 .DS_Store
-.env
+node_modules
 yarn-error.log
+
+# testing
+coverage
+cypress/screenshots
+cypress/videos
 
 # app
 .cache
+.env
 public
-www/.next

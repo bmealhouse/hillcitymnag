@@ -33,14 +33,28 @@ module.exports = {
       resolve: 'gatsby-source-prismic',
       options: {
         repositoryName: 'hillcitymnag',
-        accessToken: `${process.env.API_KEY}`,
+        accessToken: `${process.env.HCAG_PRISMIC_API_KEY}`,
         // Get the correct URLs in blog posts
+        // Set a link resolver function used to process links in your content.
+        // Fields with rich text formatting or links to internal content use this
+        // function to generate the correct link URL.
+        // The document node, field key (i.e. API ID), and field value are
+        // provided to the function, as seen below. This allows you to use
+        // different link resolver logic for each field if necessary.
+        // See: https://prismic.io/docs/javascript/query-the-api/link-resolving
         linkResolver: () => post => `/${post.uid}`,
         // PrismJS highlighting for labels and slices
+        // Set an HTML serializer function used to process formatted content.
+        // Fields with rich text formatting use this function to generate the
+        // correct HTML.
+        // The document node, field key (i.e. API ID), and field value are
+        // provided to the function, as seen below. This allows you to use
+        // different HTML serializer logic for each field if necessary.
+        // See: https://prismic.io/docs/nodejs/beyond-the-api/html-serializer
         htmlSerializer: () => prismicHtmlSerializer,
       },
     },
-    'gatsby-plugin-lodash',
+    'gatsby-plugin-lodash', // TODO: remove
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
     {
