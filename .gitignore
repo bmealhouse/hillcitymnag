@@ -5,4 +5,6 @@ node_modules
 yarn-error.log
 
 # app
+.cache
+public
 www/.next
