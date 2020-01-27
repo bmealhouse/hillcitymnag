@@ -47,9 +47,6 @@
       "original-www/static/**"
     ],
     "prettier": true,
-    "plugins": [
-      "filenames"
-    ],
     "extends": "xo-react",
     "parser": "babel-eslint",
     "rules": {
@@ -61,11 +58,6 @@
           "argsIgnorePattern": "^_",
           "varsIgnorePattern": "^_"
         }
-      ],
-      "filenames/match-exported": [
-        "error",
-        "kebab",
-        "^__"
       ]
     }
   },
@@ -99,9 +91,13 @@
     "react-dom": "^16.12.0",
     "react-helmet": "^5.2.1",
     "react-typography": "^0.16.19",
-    "typeface-lora": "^0.0.72",
-    "typeface-source-sans-pro": "^0.0.75",
-    "typography": "^0.16.19"
+    "typeface-didact-gothic": "0.0.72",
+    "typeface-fira-sans": "0.0.75",
+    "typeface-lora": "0.0.72",
+    "typeface-roboto": "0.0.75",
+    "typeface-roboto-slab": "1.1.3",
+    "typeface-source-sans-pro": "0.0.75",
+    "typography": "0.16.19"
   },
   "devDependencies": {
     "@testing-library/cypress": "^5.0.2",

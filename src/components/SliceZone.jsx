@@ -1,11 +1,9 @@
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
-import { BodyText, CodeBlock, Image, Quote } from '../slices'
-import { prism } from '../styles'
+import {BodyText, CodeBlock, Image, Quote} from '../slices'
 
 const Content = styled.div`
-  ${prism};
   padding: 6rem 0;
   p,
   li {
@@ -32,7 +30,7 @@ const Content = styled.div`
 
 export default class SliceZone extends Component {
   render() {
-    const { allSlices } = this.props
+    const {allSlices} = this.props
     const slice = allSlices.map(s => {
       switch (s.slice_type) {
         // These are the API IDs of the slices
