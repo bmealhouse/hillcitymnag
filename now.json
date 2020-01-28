@@ -2,8 +2,8 @@
   "regions": ["cle1"],
   "env": {
     "HCAG_DEPLOYMENT_TOKEN": "@hcag-deployment-token",
+    "HCAG_PRISMIC_API_KEY": "@hcag-prismic-api-key",
     "HCAG_SENDGRID_API_KEY": "@hcag-sendgrid-api-key",
-    "HCAG_SENTRY_DSN": "@hcag-sentry-dsn",
-    "HCAG_ZEIT_TOKEN": "@hcag-zeit-token"
+    "HCAG_SENTRY_DSN": "@hcag-sentry-dsn"
   }
 }
