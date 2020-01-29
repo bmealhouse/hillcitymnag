@@ -2,7 +2,7 @@ require('dotenv').config({
   path: `.env`,
 })
 
-const prismicHtmlSerializer = require('./src/gatsby/htmlSerializer')
+// const prismicHtmlSerializer = require('./src/gatsby/htmlSerializer')
 
 const website = require('./config/website')
 
@@ -25,10 +25,9 @@ module.exports = {
     twitter: website.twitter,
     facebook: website.facebook,
   },
-  /* Plugins */
   plugins: [
+    'gatsby-plugin-root-import',
     'gatsby-plugin-react-helmet',
-    'gatsby-plugin-emotion',
     {
       resolve: 'gatsby-source-prismic',
       options: {
@@ -51,10 +50,9 @@ module.exports = {
         // provided to the function, as seen below. This allows you to use
         // different HTML serializer logic for each field if necessary.
         // See: https://prismic.io/docs/nodejs/beyond-the-api/html-serializer
-        htmlSerializer: () => prismicHtmlSerializer,
+        // htmlSerializer: () => prismicHtmlSerializer,
       },
     },
-    'gatsby-plugin-lodash', // TODO: remove
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
     {
@@ -85,6 +83,5 @@ module.exports = {
     },
     // Must be placed at the end
     'gatsby-plugin-offline',
-    'gatsby-plugin-netlify',
   ],
 }

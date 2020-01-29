@@ -1,13 +1,10 @@
 import React from 'react'
 import {bool, object, array, node, oneOfType} from 'prop-types'
-import {StaticQuery, graphql} from 'gatsby'
-import {Global, css} from '@emotion/core'
-import {ThemeProvider} from 'emotion-theming'
-import Footer from '../Footer'
+import {useStaticQuery, graphql} from 'gatsby'
 import SEO from '../SEO'
-import reset from './reset'
+import CssReset from './css-reset'
 import SkipNavLink from './skip-nav-link'
-import theme from './theme'
+import Footer from './footer'
 
 /* eslint-disable import/no-unassigned-import */
 import '@reach/skip-nav/styles.css'
@@ -21,25 +18,21 @@ Layout.propTypes = {
 }
 
 export default function Layout({children, ...props}) {
-  return (
-    <StaticQuery
-      query={graphql`
-        query LayoutQuery {
-          prismicHomepage {
-            data {
-              footer {
-                html
-              }
-            }
+  const data = useStaticQuery(graphql`
+    query LayoutQuery {
+      prismicHomepage {
+        data {
+          footer {
+            html
           }
         }
-      `}
-      render={data => (
-        <PureLayout {...props} data={data}>
-          {children}
-        </PureLayout>
-      )}
-    />
+      }
+    }
+  `)
+  return (
+    <PureLayout {...props} data={data}>
+      {children}
+    </PureLayout>
   )
 }
 
@@ -55,8 +48,8 @@ PureLayout.defaultProps = {
 
 function PureLayout({children, data, customSEO}) {
   return (
-    <ThemeProvider theme={theme}>
-      <Global styles={globalStyle} />
+    <>
+      <CssReset />
       <SkipNavLink />
       {/* TODO: cleanup customeSEO prop (this needs a better name) */}
       {!customSEO && <SEO /> /* eslint-disable-line react/jsx-pascal-case */}
@@ -68,67 +61,71 @@ function PureLayout({children, data, customSEO}) {
           }}
         />
       </Footer>
-    </ThemeProvider>
+    </>
   )
 }
 
-const globalStyle = css`
-  ${reset};
+// const globalStyle = css`
+//   h1,
+//   h2,
+//   h3,
+//   h4,
+//   h5,
+//   h6 {
+//     color: ${theme.colors.black};
+//   }
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    color: ${theme.colors.black};
-  }
-  html {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-  body {
-    color: ${theme.colors.greyDarker};
-    background-color: ${theme.colors.bg};
-  }
-  ::selection {
-    color: ${theme.colors.bg};
-    background-color: ${theme.colors.primary};
-  }
-  a {
-    color: ${theme.colors.primary};
-    transition: all 0.4s ease-in-out;
-    text-decoration: none;
-    font-weight: 700;
-    font-style: italic;
-    &:hover,
-    &:focus {
-      text-decoration: underline;
-    }
-  }
-  @media (max-width: ${theme.breakpoints.m}) {
-    html {
-      font-size: 16px !important;
-    }
-  }
-  @media (max-width: ${theme.breakpoints.s}) {
-    h1 {
-      font-size: 2.369rem !important;
-    }
-    h2 {
-      font-size: 1.777rem !important;
-    }
-    h3 {
-      font-size: 1.333rem !important;
-    }
-    h4 {
-      font-size: 1rem !important;
-    }
-    h5 {
-      font-size: 0.75rem !important;
-    }
-    h6 {
-      font-size: 0.563rem !important;
-    }
-  }
-`
+//   html {
+//     -webkit-font-smoothing: antialiased;
+//     -moz-osx-font-smoothing: grayscale;
+//   }
+
+//   body {
+//     color: ${theme.colors.greyDarker};
+//     background-color: ${theme.colors.bg};
+//   }
+
+//   ::selection {
+//     color: ${theme.colors.bg};
+//     background-color: ${theme.colors.primary};
+//   }
+
+//   a {
+//     color: ${theme.colors.primary};
+//     transition: all 0.4s ease-in-out;
+//     text-decoration: none;
+//     font-weight: 700;
+//     font-style: italic;
+//     &:hover,
+//     &:focus {
+//       text-decoration: underline;
+//     }
+//   }
+
+//   @media (max-width: ${theme.breakpoints.m}) {
+//     html {
+//       font-size: 16px !important;
+//     }
+//   }
+
+//   @media (max-width: ${theme.breakpoints.s}) {
+//     h1 {
+//       font-size: 2.369rem !important;
+//     }
+//     h2 {
+//       font-size: 1.777rem !important;
+//     }
+//     h3 {
+//       font-size: 1.333rem !important;
+//     }
+//     h4 {
+//       font-size: 1rem !important;
+//     }
+//     h5 {
+//       font-size: 0.75rem !important;
+//     }
+//     h6 {
+//       font-size: 0.563rem !important;
+//     }
+//   }
+// `
