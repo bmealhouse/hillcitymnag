@@ -109,6 +109,7 @@
     "eslint-plugin-react-hooks": "2.3.0",
     "husky": "4.2.1",
     "lint-staged": "10.0.7",
+    "now": "16.7.3",
     "prettier": "1.19.1",
     "start-server-and-test": "1.10.8",
     "typescript": "3.7.5",

@@ -9,5 +9,5 @@ cypress/videos
 
 # app
 .cache
-.env
+.env*
 public
