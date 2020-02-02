@@ -1,127 +1,53 @@
 import React from 'react'
-import {string, array, shape} from 'prop-types'
-import styled from 'styled-components'
+import {shape} from 'prop-types'
 import {graphql} from 'gatsby'
-import {Layout, Wrapper} from '../components'
 import website from '../../config/website'
+import {Layout} from 'src/components'
+import {textShape} from 'src/utils/custom-prop-types'
 
 Homepage.propTypes = {
   data: shape({
-    homepage: shape({
+    page: shape({
       data: shape({
-        title: shape({
-          text: string.isRequired,
-        }),
-        content: shape({
-          html: string.isRequired,
-        }),
-      }),
-    }),
-    social: shape({
-      nodes: array.isRequired,
-    }),
-    posts: shape({
-      nodes: array.isRequired,
-    }),
-    projects: shape({
-      nodes: array.isRequired,
-    }),
+        heading: textShape.isRequired,
+        subheading: textShape.isRequired,
+        serviceTime: textShape.isRequired,
+      }).isRequired,
+    }).isRequired,
   }).isRequired,
 }
 
-export default function Homepage({data: {homepage, social, posts, projects}}) {
+export default function Homepage({data}) {
+  const {
+    page: {
+      data: {heading, subheading, serviceTime},
+    },
+  } = data
+
   return (
     <Layout>
-      <header>
-        <Wrapper>
-          <h1>{homepage.data.title.text}</h1>
-          <div dangerouslySetInnerHTML={{__html: homepage.data.content.html}} />
-        </Wrapper>
-      </header>
-      <IndexWrapper
-        id={website.skipNavId}
-        style={{paddingTop: '2rem', paddingBottom: '2rem'}}
-      >
-        {/* <Title style={{marginTop: '4rem'}}>Recent posts</Title> */}
-        {/* <Listing posts={posts.nodes} /> */}
-        {/* <Title style={{marginTop: '8rem'}}>Recent projects</Title> */}
-        {/* <ProjectListing>
-          {projects.nodes.map(project => (
-            <li key={project.primary.label.text}>
-              <a href={project.primary.link.url}>
-                {project.primary.label.text}
-              </a>
-            </li>
-          ))}
-        </ProjectListing> */}
-      </IndexWrapper>
+      <h1>{heading.text}</h1>
+      <h2>{subheading.text}</h2>
+      <h2>{serviceTime.text}</h2>
+      <main id={website.skipNavId} />
     </Layout>
   )
 }
 
 export const pageQuery = graphql`
   query IndexQuery {
-    homepage: prismicHomepage {
+    page: prismicHomepage {
       data {
-        title {
+        heading {
           text
         }
-        content {
-          html
+        subheading {
+          text
         }
-      }
-    }
-    social: allPrismicHeroLinksBodyLinkItem {
-      nodes {
-        primary {
-          label {
-            text
-          }
-          link {
-            url
-          }
-        }
-      }
-    }
-    posts: allPrismicPost(sort: {fields: [data___date], order: DESC}) {
-      nodes {
-        uid
-        data {
-          title {
-            text
-          }
-          date(formatString: "DD.MM.YYYY")
-          categories {
-            category {
-              document {
-                data {
-                  name
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-    projects: allPrismicProjectsBodyLinkItem {
-      nodes {
-        primary {
-          label {
-            text
-          }
-          link {
-            url
-          }
+        serviceTime: service_time {
+          text
         }
       }
     }
   }
-`
-
-const IndexWrapper = Wrapper.withComponent('main')
-
-const Hero = styled.header`
-  /* background-color: ${props => props.theme.colors.greyLight};
-  display: flex;
-  align-items: center; */
 `

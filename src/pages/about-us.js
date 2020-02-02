@@ -6,7 +6,7 @@ import {htmlShape, textShape} from 'src/utils/custom-prop-types'
 
 AboutUs.propTypes = {
   data: shape({
-    aboutUs: shape({
+    page: shape({
       data: shape({
         heading: textShape.isRequired,
         content: htmlShape.isRequired,
@@ -25,7 +25,7 @@ AboutUs.propTypes = {
 
 export default function AboutUs({data}) {
   const {
-    aboutUs: {
+    page: {
       data: {heading, content, teamMembersHeading, teamMembers},
     },
   } = data
@@ -54,7 +54,7 @@ export default function AboutUs({data}) {
 
 export const pageQuery = graphql`
   query AboutUsQuery {
-    aboutUs: prismicAboutUs {
+    page: prismicAboutUs {
       data {
         heading {
           text

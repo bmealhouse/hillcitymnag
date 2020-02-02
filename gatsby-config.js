@@ -1,6 +1,4 @@
-require('dotenv').config({
-  path: `.env`,
-})
+require('dotenv').config()
 
 // const prismicHtmlSerializer = require('./src/gatsby/htmlSerializer')
 
@@ -51,6 +49,13 @@ module.exports = {
         // different HTML serializer logic for each field if necessary.
         // See: https://prismic.io/docs/nodejs/beyond-the-api/html-serializer
         // htmlSerializer: () => prismicHtmlSerializer,
+      },
+    },
+    {
+      resolve: 'gatsby-source-buzzsprout',
+      options: {
+        token: process.env.HCAG_BUZZSPROUT_API_KEY,
+        podcastId: process.env.HCAG_BUZZSPROUT_PODCAST_ID,
       },
     },
     'gatsby-transformer-sharp',

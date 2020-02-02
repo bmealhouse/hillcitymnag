@@ -6,7 +6,7 @@ import {htmlShape, textShape} from 'src/utils/custom-prop-types'
 
 Beliefs.propTypes = {
   data: shape({
-    beliefs: shape({
+    page: shape({
       data: shape({
         heading: textShape.isRequired,
         beliefs: arrayOf(
@@ -22,7 +22,7 @@ Beliefs.propTypes = {
 
 export default function Beliefs({data}) {
   const {
-    beliefs: {
+    page: {
       data: {heading, beliefs},
     },
   } = data
@@ -46,7 +46,7 @@ export default function Beliefs({data}) {
 
 export const pageQuery = graphql`
   query BeliefsQuery {
-    beliefs: prismicBeliefs {
+    page: prismicBeliefs {
       data {
         heading {
           text

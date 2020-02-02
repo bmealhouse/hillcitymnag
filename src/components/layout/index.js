@@ -1,9 +1,10 @@
 import React from 'react'
-import {bool, object, array, node, oneOfType} from 'prop-types'
+import {bool, array, node, oneOfType} from 'prop-types'
 import {useStaticQuery, graphql} from 'gatsby'
 import SEO from '../SEO'
 import CssReset from './css-reset'
 import SkipNavLink from './skip-nav-link'
+import Header from './header'
 import Footer from './footer'
 
 /* eslint-disable import/no-unassigned-import */
@@ -15,52 +16,75 @@ import 'typeface-source-sans-pro'
 
 Layout.propTypes = {
   children: oneOfType([array, node]).isRequired,
+  customSEO: bool,
 }
 
-export default function Layout({children, ...props}) {
-  const data = useStaticQuery(graphql`
+Layout.defaultProps = {
+  customSEO: false,
+}
+
+export default function Layout({children, customSEO}) {
+  const {
+    layout: {data},
+  } = useStaticQuery(graphql`
     query LayoutQuery {
-      prismicHomepage {
+      layout: prismicLayout {
         data {
-          footer {
+          name {
+            text
+          }
+          links {
+            text: link_text
+            route: link_route {
+              id
+              type
+            }
+            displayInHeader: display_in_header
+            displayInFooter: display_in_footer
+          }
+          location {
+            latitude
+            longitude
+          }
+          address {
             html
+          }
+          phone {
+            text
+          }
+          email {
+            text
           }
         }
       }
     }
   `)
-  return (
-    <PureLayout {...props} data={data}>
-      {children}
-    </PureLayout>
-  )
-}
 
-PureLayout.propTypes = {
-  children: oneOfType([array, node]).isRequired,
-  data: object.isRequired,
-  customSEO: bool,
-}
+  const links = data.links.map(link => ({
+    ...link,
+    id: `${link.text}-${link.route?.type}`,
+    route: {
+      church: '/church',
+      beliefs: '/beliefs',
+      connect_children: '/connect/children',
+      connect_youth: '/connect/youth',
+      connect_adult: '/connect/adult',
+      about_us: '/about-us',
+      events: '/events',
+      sermons: '/sermons',
+      null: null,
+    }[link.route?.type],
+  }))
 
-PureLayout.defaultProps = {
-  customSEO: false,
-}
-
-function PureLayout({children, data, customSEO}) {
   return (
     <>
       <CssReset />
       <SkipNavLink />
-      {/* TODO: cleanup customeSEO prop (this needs a better name) */}
+      {/* TODO: cleanup customSEO prop (this needs a better name) */}
       {!customSEO && <SEO /> /* eslint-disable-line react/jsx-pascal-case */}
-      {children}
-      <Footer>
-        <div
-          dangerouslySetInnerHTML={{
-            __html: data.prismicHomepage.data.footer.html,
-          }}
-        />
-      </Footer>
+      <Header {...data} links={links} />
+      <main>{children}</main>
+      <Footer {...data} links={links} />
     </>
   )
 }

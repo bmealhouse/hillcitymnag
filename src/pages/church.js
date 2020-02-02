@@ -6,7 +6,7 @@ import {htmlShape, textShape} from 'src/utils/custom-prop-types'
 
 Church.propTypes = {
   data: shape({
-    church: shape({
+    page: shape({
       data: shape({
         heading: textShape.isRequired,
         subheading: textShape.isRequired,
@@ -23,14 +23,15 @@ Church.propTypes = {
 
 export default function Church({data}) {
   const {
-    church: {
-      data: {heading, sections},
+    page: {
+      data: {heading, subheading, sections},
     },
   } = data
 
   return (
     <Layout>
       <h1>{heading.text}</h1>
+      <h2>{subheading.text}</h2>
       {sections.map(section => (
         <section key={section.heading.text}>
           <h2>{section.heading.text}</h2>
@@ -47,7 +48,7 @@ export default function Church({data}) {
 
 export const pageQuery = graphql`
   query ChurchQuery {
-    church: prismicChurch {
+    page: prismicChurch {
       data {
         heading {
           text

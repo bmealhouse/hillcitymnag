@@ -855,6 +855,13 @@
   dependencies:
     regenerator-runtime "^0.13.2"
 
+"@babel/runtime@^7.6.0":
+  version "7.8.4"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.8.4.tgz#d79f5a2040f7caa24d53e563aad49cbc05581308"
+  integrity sha512-neAp3zt80trRVBI1x0azq6c57aNBqYZH8KhMm3TaB7wEI5Q4A2SHfBHE8w9gOhI/lrqxtEbXZgQIrHP+wvSGwQ==
+  dependencies:
+    regenerator-runtime "^0.13.2"
+
 "@babel/template@^7.1.0":
   version "7.4.4"
   resolved "https://registry.yarnpkg.com/@babel/template/-/template-7.4.4.tgz#f4b88d1225689a08f5bc3a17483545be9e4ed237"
@@ -6498,6 +6505,15 @@ gatsby-react-router-scroll@^2.1.19:
     "@babel/runtime" "^7.7.6"
     scroll-behavior "^0.9.10"
     warning "^3.0.0"
+
+gatsby-source-buzzsprout@0.2.1:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/gatsby-source-buzzsprout/-/gatsby-source-buzzsprout-0.2.1.tgz#c7d0f1496febb39c899d69656084d1fe57403c54"
+  integrity sha512-tXjFI1bwJIYfeNeaD5ZtoaJ3PAhAfJrXsHNWCS5ck19dwyckEpKiDAsWYVUdNkYvyeKScIB3UQmNK8jf+mmOJg==
+  dependencies:
+    "@babel/runtime" "^7.6.0"
+    gatsby-node-helpers "^0.3.0"
+    node-fetch "^2.6.0"
 
 gatsby-source-filesystem@^2.0.1:
   version "2.1.46"
