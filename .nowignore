@@ -1,14 +1,18 @@
-# project
-.next
-node_modules
-webtasks
-
-# tests
-__mocks__
-__tests__
-
-# misc
 .editorconfig
 .prettierignore
 .travis.yml
 .yarnrc
+node_modules
+
+# testing
+__mocks__
+__tests__
+cypress
+cypress.json
+
+# app
+.prismic
+original-www
+now-copy.json
+todo-renovate.json
+todo.eslintrc
