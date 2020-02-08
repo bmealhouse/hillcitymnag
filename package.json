@@ -117,9 +117,6 @@
   },
   "scripts": {
     "build": "gatsby build",
-    "cy:open": "cypress open",
-    "cy:run": "cypress run",
-    "cy:run:ci": "cypress run --browser chrome --reporter junit --reporter-options 'mochaFile=results/cypress/result.xml'",
     "lint": "eslint . --ext .js,.jsx --ignore-path .gitignore",
     "lint:fix": "eslint . --ext .js,.jsx --fix --ignore-path .gitignore",
     "lint:ci": "yarn lint --format junit -o results/eslint/result.xml",
@@ -127,9 +124,6 @@
     "dev": "gatsby develop",
     "format": "prettier --write \"**/*.js\"",
     "serve": "gatsby serve",
-    "test": "echo todo",
-    "test:e2e:dev": "cross-env CYPRESS_SUPPORT=y start-server-and-test dev http://localhost:8000 cy:open",
-    "test:e2e:run": "cross-env CYPRESS_SUPPORT=y start-server-and-test develop http://localhost:8000 cy:run",
-    "test:e2e:ci": "cross-env CYPRESS_SUPPORT=y start-server-and-test develop http://localhost:8000 cy:run:ci"
+    "test": "echo todo"
   }
 }

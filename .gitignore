@@ -4,8 +4,6 @@ yarn-error.log
 
 # testing
 coverage
-cypress/screenshots
-cypress/videos
 
 # app
 .cache
