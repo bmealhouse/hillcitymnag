@@ -23,9 +23,11 @@ export default function LatestSermon({latestSermon}) {
       <a href={latestSermonHref} css={titleLink}>
         <h3 css={title}>{latestSermon.title}</h3>
       </a>
-      <p css={description}>
-        {latestSermon.description.replace(/<\/?(p|br)>/g, '')}
-      </p>
+      {latestSermon.description && (
+        <p css={description}>
+          {latestSermon.description.replace(/<\/?(p|br)>/g, '')}
+        </p>
+      )}
       <a className="btn btn-default btn-lg" href={latestSermonHref} css={btn}>
         <i
           className="fa fa-play-circle-o fa-lg"
