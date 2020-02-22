@@ -1,17 +1,20 @@
 import React from 'react'
 import {bool, array, node, oneOfType} from 'prop-types'
 import {useStaticQuery, graphql} from 'gatsby'
+import styled from 'styled-components'
+import website from 'config/website'
+import {screens, rem} from 'src/utils'
 import SEO from '../SEO'
 import CssReset from './css-reset'
 import SkipNavLink from './skip-nav-link'
-import Header from './header'
-import Footer from './footer'
+import SiteHeader from './site-header'
+import SiteFooter from './site-footer'
 
 /* eslint-disable import/no-unassigned-import */
 import '@reach/skip-nav/styles.css'
-import 'typeface-lora'
+// import 'typeface-lora'
 import 'typeface-roboto'
-import 'typeface-source-sans-pro'
+// import 'typeface-source-sans-pro'
 /* eslint-enable import/no-unassigned-import */
 
 Layout.propTypes = {
@@ -64,7 +67,7 @@ export default function Layout({children, customSEO}) {
     ...link,
     id: `${link.text}-${link.route?.type}`,
     route: {
-      church: '/church',
+      church: '/only-in-a-church',
       beliefs: '/beliefs',
       connect_children: '/connect/children',
       connect_youth: '/connect/youth',
@@ -82,12 +85,43 @@ export default function Layout({children, customSEO}) {
       <SkipNavLink />
       {/* TODO: cleanup customSEO prop (this needs a better name) */}
       {!customSEO && <SEO /> /* eslint-disable-line react/jsx-pascal-case */}
-      <Header {...data} links={links} />
-      <main>{children}</main>
-      <Footer {...data} links={links} />
+      <Container>
+        <SiteHeader {...data} links={links} />
+        <Main id={website.skipNavId}>{children}</Main>
+        <SiteFooter {...data} links={links} />
+      </Container>
     </>
   )
 }
+
+const Container = styled.div`
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+
+  @media (min-width: ${screens.sm}) {
+    max-width: ${screens.sm};
+  }
+
+  @media (min-width: ${screens.md}) {
+    max-width: ${screens.md};
+  }
+
+  @media (min-width: ${screens.lg}) {
+    max-width: ${screens.lg};
+  }
+
+  @media (min-width: ${screens.xl}) {
+    max-width: ${screens.xl};
+  }
+`
+
+const Main = styled.main`
+  margin-top: ${rem(16)};
+  margin-right: ${rem(4)};
+  margin-bottom: ${rem(16)};
+  margin-left: ${rem(4)};
+`
 
 // const globalStyle = css`
 //   h1,

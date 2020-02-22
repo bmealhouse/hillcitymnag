@@ -2,6 +2,8 @@ require('dotenv').config({
   path: '.env.build',
 })
 
+const path = require('path')
+
 // const prismicHtmlSerializer = require('./src/gatsby/htmlSerializer')
 
 const website = require('./config/website')
@@ -26,8 +28,15 @@ module.exports = {
     facebook: website.facebook,
   },
   plugins: [
-    'gatsby-plugin-root-import',
+    {
+      resolve: 'gatsby-plugin-root-import',
+      options: {
+        src: path.join(__dirname, 'src'),
+        config: path.join(__dirname, 'config'),
+      },
+    },
     'gatsby-plugin-react-helmet',
+    'gatsby-plugin-styled-components',
     {
       resolve: 'gatsby-source-prismic',
       options: {

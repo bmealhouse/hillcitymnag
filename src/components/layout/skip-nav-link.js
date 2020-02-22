@@ -1,6 +1,6 @@
 import React from 'react'
 import {node} from 'prop-types'
-import website from '../../../config/website'
+import website from 'config/website'
 
 SkipNavLink.propTypes = {
   children: node,

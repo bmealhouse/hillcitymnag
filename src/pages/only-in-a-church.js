@@ -1,8 +1,17 @@
 import React from 'react'
 import {shape, arrayOf} from 'prop-types'
 import {graphql} from 'gatsby'
-import {Layout} from 'src/components'
-import {htmlShape, textShape} from 'src/utils/custom-prop-types'
+import {
+  Layout,
+  HeaderGroup,
+  H1,
+  Kicker,
+  H2Kicker,
+  H3,
+  Article,
+  HtmlContent,
+} from 'src/components'
+import {htmlShape, textShape} from 'src/utils'
 
 Church.propTypes = {
   data: shape({
@@ -30,17 +39,21 @@ export default function Church({data}) {
 
   return (
     <Layout>
-      <h1>{heading.text}</h1>
-      <h2>{subheading.text}</h2>
+      <HeaderGroup>
+        <H1>{heading.text}</H1>
+        <Kicker>
+          <H2Kicker>{subheading.text}</H2Kicker>
+        </Kicker>
+      </HeaderGroup>
       {sections.map(section => (
-        <section key={section.heading.text}>
-          <h2>{section.heading.text}</h2>
-          <p
+        <Article key={section.heading.text}>
+          <H3>{section.heading.text}</H3>
+          <HtmlContent
             dangerouslySetInnerHTML={{
               __html: section.content.html,
             }}
           />
-        </section>
+        </Article>
       ))}
     </Layout>
   )

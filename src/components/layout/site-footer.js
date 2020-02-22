@@ -1,26 +1,19 @@
 import React from 'react'
-import {number, shape} from 'prop-types'
-import {htmlShape, linksShape, textShape} from 'src/utils/custom-prop-types'
+import styled from 'styled-components'
+import {htmlShape, linksShape, textShape, rem} from 'src/utils'
 
-Footer.propTypes = {
+SiteFooter.propTypes = {
   name: textShape.isRequired,
   links: linksShape.isRequired,
-  location: shape({
-    latitude: number.isRequired,
-    longitude: number.isRequired,
-  }).isRequired,
   address: htmlShape.isRequired,
   phone: textShape.isRequired,
   email: textShape.isRequired,
 }
 
-export default function Footer({name, links, location, address, phone, email}) {
+export default function SiteFooter({name, links, address, phone, email}) {
   return (
-    <footer>
+    <Footer>
       <section>
-        <p>
-          <strong>{name.text}</strong>
-        </p>
         <ul>
           {links
             .filter(link => link.displayInFooter)
@@ -32,7 +25,9 @@ export default function Footer({name, links, location, address, phone, email}) {
         </ul>
       </section>
       <section>
-        <pre>{JSON.stringify(location, null, 2)}</pre>
+        <p>
+          <strong>{name.text}</strong>
+        </p>
         <p
           dangerouslySetInnerHTML={{
             __html: address.html,
@@ -41,6 +36,13 @@ export default function Footer({name, links, location, address, phone, email}) {
         <p>{phone.text}</p>
         <p>{email.text}</p>
       </section>
-    </footer>
+      <section>© {name.text}</section>
+    </Footer>
   )
 }
+
+const Footer = styled.footer`
+  padding: ${rem(10)} ${rem(4)};
+  color: #fff;
+  background-color: #292929;
+`

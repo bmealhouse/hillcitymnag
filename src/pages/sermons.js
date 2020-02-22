@@ -1,10 +1,10 @@
 import React from 'react'
 import {string, shape, arrayOf} from 'prop-types'
 import {graphql} from 'gatsby'
-import {Layout} from 'src/components'
+import {Layout, HeaderGroup, H1, H2, Article, HtmlContent} from 'src/components'
 import {textShape} from 'src/utils/custom-prop-types'
 
-Sermons.propTyes = {
+Sermons.propTypes = {
   data: shape({
     page: shape({
       data: shape({
@@ -36,17 +36,19 @@ export default function Sermons({data}) {
 
   return (
     <Layout>
-      <h1>{heading.text}</h1>
+      <HeaderGroup>
+        <H1>{heading.text}</H1>
+      </HeaderGroup>
       {sermons.edges.map(({node: sermon}) => (
-        <section key={sermon.id}>
-          <h2>{sermon.title}</h2>
-          <div
+        <Article key={sermon.id}>
+          <H2>{sermon.title}</H2>
+          <HtmlContent
             dangerouslySetInnerHTML={{
               __html: sermon.description,
             }}
           />
           <p>{sermon.audioUrl}</p>
-        </section>
+        </Article>
       ))}
     </Layout>
   )

@@ -1,9 +1,9 @@
 import React from 'react'
 import {shape} from 'prop-types'
 import {graphql} from 'gatsby'
-import website from '../../config/website'
-import {Layout} from 'src/components'
-import {textShape} from 'src/utils/custom-prop-types'
+import styled from 'styled-components'
+import {Layout, HeaderGroup, H1, H2} from 'src/components'
+import {textShape, rem} from 'src/utils'
 
 Homepage.propTypes = {
   data: shape({
@@ -26,10 +26,14 @@ export default function Homepage({data}) {
 
   return (
     <Layout>
-      <h1>{heading.text}</h1>
-      <h2>{subheading.text}</h2>
-      <h2>{serviceTime.text}</h2>
-      <main id={website.skipNavId} />
+      {/* py-16? px-10? */}
+      <HeaderGroup>
+        <H1>{heading.text}</H1>
+        <H2 css="color:rgba(24,55,27,0.75);">{serviceTime.text}</H2>
+      </HeaderGroup>
+      <MissionStatement>
+        <p>{subheading.text}</p>
+      </MissionStatement>
     </Layout>
   )
 }
@@ -50,4 +54,16 @@ export const pageQuery = graphql`
       }
     }
   }
+`
+
+const MissionStatement = styled.article`
+  margin-right: ${rem(-4)};
+  margin-left: ${rem(-4)};
+  margin-bottom: ${rem(64)};
+  padding: ${rem(10)} ${rem(4)};
+  font-size: ${rem('2xl')};
+  font-weight: 700;
+  line-height: ${rem('4xl')};
+  color: #fff;
+  background-color: #292929;
 `
