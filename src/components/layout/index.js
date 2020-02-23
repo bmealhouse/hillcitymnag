@@ -12,9 +12,8 @@ import SiteFooter from './site-footer'
 
 /* eslint-disable import/no-unassigned-import */
 import '@reach/skip-nav/styles.css'
-// import 'typeface-lora'
+import 'typeface-lora'
 import 'typeface-roboto'
-// import 'typeface-source-sans-pro'
 /* eslint-enable import/no-unassigned-import */
 
 Layout.propTypes = {
@@ -66,6 +65,7 @@ export default function Layout({children, customSEO}) {
   const links = data.links.map(link => ({
     ...link,
     id: `${link.text}-${link.route?.type}`,
+    text: link.text === 'Church' ? 'Only in a Church' : link.text,
     route: {
       church: '/only-in-a-church',
       beliefs: '/beliefs',

@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faBars} from '@fortawesome/free-solid-svg-icons'
 import website from 'config/website'
+import {Small} from 'src/components'
 import {linksShape, rem} from 'src/utils'
 import logo from './light-logo.svg'
 
@@ -56,9 +57,4 @@ const MenuToggle = styled.button`
   display: flex;
   flex-direction: column;
   align-items: center;
-`
-
-const Small = styled.small`
-  font-size: ${rem('xs')};
-  letter-spacing: -0.025em;
 `
