@@ -22,7 +22,6 @@
     "feedparser": "2.2.9",
     "micro": "9.3.3",
     "micro-cors": "0.1.1",
-    "micro-get": "0.1.1",
     "micro-sentry": "1.2.0",
     "request": "2.88.0"
   },

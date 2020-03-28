@@ -13,7 +13,7 @@ const getServer = async () => {
   return {server, url: await listen(server)}
 }
 
-test('405: POST requests are not supported', async () => {
+test.skip('405: POST requests are not supported', async () => {
   expect.assertions(1)
 
   const options = getOptions('POST')
@@ -24,7 +24,7 @@ test('405: POST requests are not supported', async () => {
   server.close()
 })
 
-test('405: PUT requests are not supported', async () => {
+test.skip('405: PUT requests are not supported', async () => {
   expect.assertions(1)
 
   const options = getOptions('PUT')
@@ -35,7 +35,7 @@ test('405: PUT requests are not supported', async () => {
   server.close()
 })
 
-test('405: DELETE requests are not supported', async () => {
+test.skip('405: DELETE requests are not supported', async () => {
   expect.assertions(1)
 
   const options = getOptions('DELETE')

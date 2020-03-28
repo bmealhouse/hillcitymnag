@@ -1,4 +1,3 @@
-const get = require('micro-get')
 const microCors = require('micro-cors')
 const microSentry = require('micro-sentry')
 
@@ -13,5 +12,5 @@ module.exports = fn => {
     fn = microSentry(process.env.HCAG_SENTRY_DSN)(fn)
   }
 
-  return cors(get(fn))
+  return cors(fn)
 }

@@ -6565,11 +6565,6 @@ micro-dev@3.0.0:
     pretty-error "2.1.1"
     string-length "2.0.0"
 
-micro-get@0.1.1:
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/micro-get/-/micro-get-0.1.1.tgz#6eecd2e4ddf41d331fcd51da3f48b18f2cb745c9"
-  integrity sha1-buzS5N30HTMfzVHaP0ixjyy3Rck=
-
 micro-post@1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/micro-post/-/micro-post-1.0.0.tgz#8c92caed6e241afe52c25a33bb6a0c245232d4c4"
