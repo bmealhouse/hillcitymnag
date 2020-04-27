@@ -1,7 +1,7 @@
 import React from 'react'
 import {string, shape, arrayOf} from 'prop-types'
 import {graphql} from 'gatsby'
-import {Layout} from 'src/components'
+import {Layout, Article, HtmlContent} from 'src/components'
 import {htmlShape, textShape} from 'src/utils/custom-prop-types'
 
 AboutUs.propTypes = {
@@ -23,7 +23,7 @@ AboutUs.propTypes = {
   }).isRequired,
 }
 
-export default function AboutUs({data}) {
+function AboutUs({data}) {
   const {
     page: {
       data: {heading, content, teamMembersHeading, teamMembers},
@@ -32,25 +32,32 @@ export default function AboutUs({data}) {
 
   return (
     <Layout>
-      <h1>{heading.text}</h1>
-      <section
-        dangerouslySetInnerHTML={{
-          __html: content.html,
-        }}
-      />
-      <section>
+      <hgroup>
+        <h1>{heading.text}</h1>
+      </hgroup>
+      <Article>
+        <HtmlContent
+          dangerouslySetInnerHTML={{
+            __html: content.html,
+          }}
+        />
+      </Article>
+      <Article>
         <h2>{teamMembersHeading.text}</h2>
-        {teamMembers.map(teamMember => (
+        {/* TODO: fix this section */}
+        {teamMembers.map((teamMember) => (
           <div key={teamMember.name.text}>
             <h3>{teamMember.name.text}</h3>
             <p>{teamMember.email}</p>
             <p>{teamMember.title}</p>
           </div>
         ))}
-      </section>
+      </Article>
     </Layout>
   )
 }
+
+export default React.memo(AboutUs)
 
 export const pageQuery = graphql`
   query AboutUsQuery {

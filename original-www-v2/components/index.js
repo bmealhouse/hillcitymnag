@@ -1,0 +1,6 @@
+export * from './headings'
+export {default as Article} from './article'
+export {default as HtmlContent} from './html-content'
+export {default as Layout} from './layout'
+export {default as SEO} from './SEO'
+export {default as Small} from './small'

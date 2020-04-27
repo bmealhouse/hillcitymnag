@@ -1,12 +1,15 @@
 import Typography from 'typography'
-
-// This website uses the system font stack after the placed "Lora" font
-// The scaleRatio will be overwritten for smaller breakpoints in src/components/Layout
+import website from './website'
 
 const typography = new Typography({
-  title: 'Gatsby Starter Prismic.io',
-  baseFontSize: '18px',
-  baseLineHeight: 1.45,
+  title: website.title,
+  baseFontSize: '20px',
+  googleFonts: [
+    {
+      name: 'Roboto',
+      styles: ['400', '700'],
+    },
+  ],
   headerFontFamily: [
     'Roboto',
     '-apple-system',
@@ -31,13 +34,9 @@ const typography = new Typography({
     'Segoe UI Emoji',
     'Segoe UI Symbol',
   ],
-  scaleRatio: 3.157,
   headerWeight: 700,
-  overrideStyles: () => ({
-    img: {
-      marginBottom: 0,
-    },
-  }),
+  bodyWeight: 400,
+  boldWeight: 700,
 })
 
 export default typography

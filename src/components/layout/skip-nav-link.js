@@ -10,10 +10,12 @@ SkipNavLink.defaultProps = {
   children: 'Skip to content',
 }
 
-export default function SkipNavLink({children, ...props}) {
+function SkipNavLink({children, ...props}) {
   return (
     <a {...props} data-reach-skip-link href={`#${website.skipNavId}`}>
       {children}
     </a>
   )
 }
+
+export default React.memo(SkipNavLink)

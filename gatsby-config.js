@@ -38,7 +38,7 @@ module.exports = {
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-styled-components',
     {
-      resolve: 'gatsby-source-prismic',
+      resolve: 'gatsby-source-prismic', // TODO: research this plugin
       options: {
         repositoryName: 'hillcitymnag',
         accessToken: `${process.env.HCAG_PRISMIC_API_KEY}`,
@@ -50,7 +50,7 @@ module.exports = {
         // provided to the function, as seen below. This allows you to use
         // different link resolver logic for each field if necessary.
         // See: https://prismic.io/docs/javascript/query-the-api/link-resolving
-        linkResolver: () => post => `/${post.uid}`,
+        linkResolver: () => (post) => `/${post.uid}`,
         // PrismJS highlighting for labels and slices
         // Set an HTML serializer function used to process formatted content.
         // Fields with rich text formatting use this function to generate the
@@ -69,22 +69,23 @@ module.exports = {
         podcastId: process.env.HCAG_BUZZSPROUT_PODCAST_ID,
       },
     },
-    'gatsby-transformer-sharp',
-    'gatsby-plugin-sharp',
+    'gatsby-transformer-sharp', // TODO: research this plugin
+    'gatsby-plugin-sharp', // TODO: research this plugin
     {
-      resolve: 'gatsby-plugin-typography',
+      resolve: 'gatsby-plugin-typography', // TODO: configure this plugin
       options: {
         pathToConfigModule: 'config/typography.js',
       },
     },
     {
-      resolve: 'gatsby-plugin-google-analytics',
+      resolve: 'gatsby-plugin-google-analytics', // TODO: configure this plugin
       options: {
         trackingId: website.googleAnalyticsID,
       },
     },
     'gatsby-plugin-sitemap',
     {
+      /* eslint-disable camelcase */
       resolve: 'gatsby-plugin-manifest',
       options: {
         name: website.title,
@@ -96,6 +97,7 @@ module.exports = {
         display: 'standalone',
         icon: website.favicon,
       },
+      /* eslint-enable camelcase */
     },
     // Must be placed at the end
     'gatsby-plugin-offline',

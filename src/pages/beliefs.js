@@ -1,8 +1,8 @@
 import React from 'react'
 import {shape, arrayOf} from 'prop-types'
 import {graphql} from 'gatsby'
-import {Layout, HeaderGroup, H1, H2, Article, HtmlContent} from 'src/components'
-import {htmlShape, textShape} from 'src/utils/custom-prop-types'
+import {Layout, Article, HtmlContent} from 'src/components'
+import {htmlShape, textShape} from 'src/utils'
 
 Beliefs.propTypes = {
   data: shape({
@@ -20,7 +20,7 @@ Beliefs.propTypes = {
   }).isRequired,
 }
 
-export default function Beliefs({data}) {
+function Beliefs({data}) {
   const {
     page: {
       data: {heading, beliefs},
@@ -29,22 +29,26 @@ export default function Beliefs({data}) {
 
   return (
     <Layout>
-      <HeaderGroup>
-        <H1>{heading.text}</H1>
-      </HeaderGroup>
-      {beliefs.map(belief => (
-        <Article key={belief.heading.text} highlight="even">
-          <H2>{belief.heading.text}</H2>
-          <HtmlContent
-            dangerouslySetInnerHTML={{
-              __html: belief.content.html,
-            }}
-          />
-        </Article>
-      ))}
+      <hgroup>
+        <h1>{heading.text}</h1>
+      </hgroup>
+      <div>
+        {beliefs.map((belief) => (
+          <Article key={belief.heading.text} highlight="odd">
+            <h2>{belief.heading.text}</h2>
+            <HtmlContent
+              dangerouslySetInnerHTML={{
+                __html: belief.content.html,
+              }}
+            />
+          </Article>
+        ))}
+      </div>
     </Layout>
   )
 }
+
+export default React.memo(Beliefs)
 
 export const pageQuery = graphql`
   query BeliefsQuery {

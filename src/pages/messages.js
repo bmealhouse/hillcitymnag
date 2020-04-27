@@ -1,10 +1,10 @@
 import React from 'react'
 import {string, shape, arrayOf} from 'prop-types'
 import {graphql} from 'gatsby'
-import {Layout, HeaderGroup, H1, H2, Article, HtmlContent} from 'src/components'
+import {Layout, Article, HtmlContent} from 'src/components'
 import {textShape} from 'src/utils/custom-prop-types'
 
-Sermons.propTypes = {
+Messages.propTypes = {
   data: shape({
     page: shape({
       data: shape({
@@ -26,7 +26,7 @@ Sermons.propTypes = {
   }).isRequired,
 }
 
-export default function Sermons({data}) {
+function Messages({data}) {
   const {
     page: {
       data: {heading},
@@ -36,12 +36,12 @@ export default function Sermons({data}) {
 
   return (
     <Layout>
-      <HeaderGroup>
-        <H1>{heading.text}</H1>
-      </HeaderGroup>
+      <hgroup>
+        <h1>{heading.text}</h1>
+      </hgroup>
       {sermons.edges.map(({node: sermon}) => (
-        <Article key={sermon.id}>
-          <H2>{sermon.title}</H2>
+        <Article key={sermon.id} highlight="even">
+          <h2>{sermon.title}</h2>
           <HtmlContent
             dangerouslySetInnerHTML={{
               __html: sermon.description,
@@ -53,6 +53,8 @@ export default function Sermons({data}) {
     </Layout>
   )
 }
+
+export default React.memo(Messages)
 
 export const pageQuery = graphql`
   query SermonsQuery {

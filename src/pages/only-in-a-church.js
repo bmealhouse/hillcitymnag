@@ -1,16 +1,7 @@
 import React from 'react'
 import {shape, arrayOf} from 'prop-types'
 import {graphql} from 'gatsby'
-import {
-  Layout,
-  HeaderGroup,
-  H1,
-  Kicker,
-  H2Kicker,
-  H3,
-  Article,
-  HtmlContent,
-} from 'src/components'
+import {Layout, H2Kicker, Article, HtmlContent} from 'src/components'
 import {htmlShape, textShape} from 'src/utils'
 
 Church.propTypes = {
@@ -30,7 +21,7 @@ Church.propTypes = {
   }).isRequired,
 }
 
-export default function Church({data}) {
+function Church({data}) {
   const {
     page: {
       data: {heading, subheading, sections},
@@ -39,15 +30,13 @@ export default function Church({data}) {
 
   return (
     <Layout>
-      <HeaderGroup>
-        <H1>{heading.text}</H1>
-        <Kicker>
-          <H2Kicker>{subheading.text}</H2Kicker>
-        </Kicker>
-      </HeaderGroup>
-      {sections.map(section => (
-        <Article key={section.heading.text}>
-          <H3>{section.heading.text}</H3>
+      <hgroup>
+        <h1>{heading.text}</h1>
+        <H2Kicker>{subheading.text}</H2Kicker>
+      </hgroup>
+      {sections.map((section) => (
+        <Article key={section.heading.text} highlight="even">
+          <h3>{section.heading.text}</h3>
           <HtmlContent
             dangerouslySetInnerHTML={{
               __html: section.content.html,
@@ -58,6 +47,8 @@ export default function Church({data}) {
     </Layout>
   )
 }
+
+export default React.memo(Church)
 
 export const pageQuery = graphql`
   query ChurchQuery {

@@ -1,10 +1,10 @@
 import React from 'react'
 import {shape} from 'prop-types'
 import {graphql} from 'gatsby'
-import {Layout} from 'src/components'
+import {Layout, H2Kicker, Article, HtmlContent} from 'src/components'
 import {htmlShape, textShape} from 'src/utils/custom-prop-types'
 
-Youth.propTyes = {
+Youth.propTypes = {
   data: shape({
     page: shape({
       data: shape({
@@ -16,7 +16,7 @@ Youth.propTyes = {
   }).isRequired,
 }
 
-export default function Youth({data}) {
+function Youth({data}) {
   const {
     page: {
       data: {heading, subheading, content},
@@ -25,16 +25,22 @@ export default function Youth({data}) {
 
   return (
     <Layout>
-      <h1>{heading.text}</h1>
-      <h2>{subheading.text}</h2>
-      <section
-        dangerouslySetInnerHTML={{
-          __html: content.html,
-        }}
-      />
+      <hgroup>
+        <h1>{heading.text}</h1>
+        <H2Kicker>{subheading.text}</H2Kicker>
+      </hgroup>
+      <Article>
+        <HtmlContent
+          dangerouslySetInnerHTML={{
+            __html: content.html,
+          }}
+        />
+      </Article>
     </Layout>
   )
 }
+
+export default React.memo(Youth)
 
 export const pageQuery = graphql`
   query ConnectYouthQuery {
