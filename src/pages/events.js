@@ -26,7 +26,7 @@ Events.propTypes = {
   }).isRequired,
 }
 
-const Calendar = loadable({
+export const Calendar = loadable({
   loader: () => import('src/components/calendar'),
   loading() {
     return <div>Loading events...</div>

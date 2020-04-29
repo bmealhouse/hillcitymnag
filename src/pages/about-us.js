@@ -1,8 +1,9 @@
 import React from 'react'
 import {string, shape, arrayOf} from 'prop-types'
+import styled from 'styled-components'
 import {graphql} from 'gatsby'
-import {Layout, Article, HtmlContent} from 'src/components'
-import {htmlShape, textShape} from 'src/utils/custom-prop-types'
+import {Layout, Article} from 'src/components'
+import {htmlShape, textShape, rem} from 'src/utils'
 
 AboutUs.propTypes = {
   data: shape({
@@ -35,14 +36,14 @@ function AboutUs({data}) {
       <hgroup>
         <h1>{heading.text}</h1>
       </hgroup>
-      <Article>
-        <HtmlContent
-          dangerouslySetInnerHTML={{
-            __html: content.html,
-          }}
-        />
+      <Article highlight="even">
+        <Mission>
+          <Quote>&ldquo;</Quote>
+          {content.text}
+          <Quote>&rdquo;</Quote>
+        </Mission>
       </Article>
-      <Article>
+      <Article highlight="even">
         <h2>{teamMembersHeading.text}</h2>
         {/* TODO: fix this section */}
         {teamMembers.map((teamMember) => (
@@ -68,6 +69,7 @@ export const pageQuery = graphql`
         }
         content {
           html
+          text
         }
         teamMembersHeading: team_members_heading {
           text
@@ -82,4 +84,17 @@ export const pageQuery = graphql`
       }
     }
   }
+`
+
+const Mission = styled.h2`
+  margin-bottom: 0;
+  font-weight: 500;
+  font-style: italic;
+`
+
+const Quote = styled.span`
+  position: fixed;
+  display: none;
+  transform: translate(-${rem(4)});
+  font-size: ${rem(30)};
 `

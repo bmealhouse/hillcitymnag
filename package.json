@@ -41,6 +41,7 @@
   },
   "xo": {
     "envs": [
+      "browser",
       "jest"
     ],
     "ignores": [

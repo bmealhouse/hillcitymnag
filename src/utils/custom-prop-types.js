@@ -2,6 +2,7 @@ import {bool, string, shape, arrayOf} from 'prop-types'
 
 export const htmlShape = shape({
   html: string.isRequired,
+  text: string,
 })
 
 export const linksShape = arrayOf(

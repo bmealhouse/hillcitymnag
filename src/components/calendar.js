@@ -57,9 +57,11 @@ const FullCalendarStyles = createGlobalStyle`
     letter-spacing: -0.025em;
   }
 
-  .tippy-content {
-    padding: ${rem(3)};
+  .tippy-box {
+    padding: ${rem(2)};
+  }
 
+  .tippy-content {
     h3 {
       margin-bottom: ${rem(1)};
       color: hsla(47, 21%, 90%, 0.5);

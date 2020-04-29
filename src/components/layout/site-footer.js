@@ -2,14 +2,10 @@ import React from 'react'
 import {Link} from 'gatsby'
 import styled from 'styled-components'
 import {Container, Small, UnorderedList} from 'src/components'
+import {Calendar} from 'src/pages/events'
 import {htmlShape, linksShape, textShape, rem, screens} from 'src/utils'
+import {linkGroups} from './site-header'
 import locationMap from './location-map.png'
-
-const linkGroups = {
-  church: ['Only in a Church', 'Beliefs', 'About Us'],
-  connect: ['Connect - Children', 'Connect - Youth', 'Connect - Adult'],
-  resources: ['Events', 'Sermons', 'Donate'],
-}
 
 SiteFooter.propTypes = {
   name: textShape.isRequired,
@@ -31,18 +27,26 @@ function SiteFooter({name, links, address, phone, email}) {
                 <UnorderedList>
                   {links
                     .filter(
-                      (link) =>
-                        link.displayInFooter && groupLinks.includes(link.text),
+                      ({id, displayInFooter}) =>
+                        displayInFooter && groupLinks.includes(id),
                     )
-                    .map(({id, text, route}) => {
-                      return (
-                        <ListItem key={id}>
-                          <Link to={route || '#'}>
-                            {text.replace('Connect - ', '')}
-                          </Link>
-                        </ListItem>
-                      )
-                    })}
+                    .map(
+                      ({id, text, route}) =>
+                        console.log(id) || (
+                          <ListItem key={id}>
+                            <Link
+                              to={route || '#'}
+                              onMouseEnter={() => {
+                                if (id === 'Events-events') {
+                                  Calendar.preload()
+                                }
+                              }}
+                            >
+                              {text.replace('Connect - ', '')}
+                            </Link>
+                          </ListItem>
+                        ),
+                    )}
                 </UnorderedList>
               </Section>
             ))}
@@ -130,6 +134,7 @@ const SectionTitle = styled.h2`
 const ListItem = styled.li`
   margin-bottom: ${rem(2)};
   font-size: ${rem('sm')};
+  letter-spacing: -0.025em;
 `
 
 const ContactInfo = styled.div`
