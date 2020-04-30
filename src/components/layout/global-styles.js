@@ -193,4 +193,13 @@ export default createGlobalStyle`
     max-width: 100%;
     height: auto;
   }
+
+   /**
+    * Hill City Assembly of God styles
+    */
+
+  a {
+    color: #0074d9;
+    text-decoration: underline;
+  }
 `

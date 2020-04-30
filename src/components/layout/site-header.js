@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import {Link} from 'gatsby'
+import {Link as GatsbyLink} from 'gatsby'
 import styled from 'styled-components'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faBars} from '@fortawesome/free-solid-svg-icons'
@@ -7,6 +7,7 @@ import website from 'config/website'
 import {Small} from 'src/components'
 import {Calendar} from 'src/pages/events'
 import {linksShape, rem, screens} from 'src/utils'
+import Donate from './donate'
 import logo from './light-logo.svg'
 
 SiteHeader.propTypes = {
@@ -64,11 +65,17 @@ function SiteHeader({links}) {
                         ({id, displayInHeader}) =>
                           displayInHeader && groupLinks.includes(id),
                       )
-                      .map(({id, text, route}) => {
-                        return (
-                          <li key={id}>
+                      .map(({id, text, route}) => (
+                        <li key={id}>
+                          {id === 'Donate-undefined' ? (
+                            <Donate
+                              onClick={() => {
+                                setIsOpen(false)
+                              }}
+                            />
+                          ) : (
                             <Link
-                              to={route || '#'}
+                              to={route}
                               onMouseEnter={() => {
                                 if (id === 'Events-events') {
                                   Calendar.preload()
@@ -80,9 +87,9 @@ function SiteHeader({links}) {
                             >
                               {text.replace('Connect - ', '')}
                             </Link>
-                          </li>
-                        )
-                      })}
+                          )}
+                        </li>
+                      ))}
                   </ul>
                 </Submenu>
               </MenuGroupWrapper>
@@ -110,11 +117,17 @@ function SiteHeader({links}) {
                       ({id, displayInHeader}) =>
                         displayInHeader && groupLinks.includes(id),
                     )
-                    .map(({id, text, route}) => {
-                      return (
-                        <li key={id}>
+                    .map(({id, text, route}) => (
+                      <li key={id}>
+                        {id === 'Donate-undefined' ? (
+                          <Donate
+                            onClick={() => {
+                              setIsOpen(false)
+                            }}
+                          />
+                        ) : (
                           <Link
-                            to={route || '#'}
+                            to={route}
                             onMouseEnter={() => {
                               if (id === 'Events-events') {
                                 Calendar.preload()
@@ -126,9 +139,9 @@ function SiteHeader({links}) {
                           >
                             {text.replace('Connect - ', '')}
                           </Link>
-                        </li>
-                      )
-                    })}
+                        )}
+                      </li>
+                    ))}
                 </ul>
               </Submenu>
             </li>
@@ -272,4 +285,9 @@ const Submenu = styled.div`
       }
     }
   }
+`
+
+const Link = styled(GatsbyLink)`
+  color: hsla(0, 0%, 0%, 0.8);
+  text-decoration: none;
 `

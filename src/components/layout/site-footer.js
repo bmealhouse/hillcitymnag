@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import {Container, Small, UnorderedList} from 'src/components'
 import {Calendar} from 'src/pages/events'
 import {htmlShape, linksShape, textShape, rem, screens} from 'src/utils'
+import Donate from './donate'
 import {linkGroups} from './site-header'
 import locationMap from './location-map.png'
 
@@ -30,23 +31,24 @@ function SiteFooter({name, links, address, phone, email}) {
                       ({id, displayInFooter}) =>
                         displayInFooter && groupLinks.includes(id),
                     )
-                    .map(
-                      ({id, text, route}) =>
-                        console.log(id) || (
-                          <ListItem key={id}>
-                            <Link
-                              to={route || '#'}
-                              onMouseEnter={() => {
-                                if (id === 'Events-events') {
-                                  Calendar.preload()
-                                }
-                              }}
-                            >
-                              {text.replace('Connect - ', '')}
-                            </Link>
-                          </ListItem>
-                        ),
-                    )}
+                    .map(({id, text, route}) => (
+                      <ListItem key={id}>
+                        {id === 'Donate-undefined' ? (
+                          <Donate />
+                        ) : (
+                          <Link
+                            to={route}
+                            onMouseEnter={() => {
+                              if (id === 'Events-events') {
+                                Calendar.preload()
+                              }
+                            }}
+                          >
+                            {text.replace('Connect - ', '')}
+                          </Link>
+                        )}
+                      </ListItem>
+                    ))}
                 </UnorderedList>
               </Section>
             ))}
@@ -135,6 +137,11 @@ const ListItem = styled.li`
   margin-bottom: ${rem(2)};
   font-size: ${rem('sm')};
   letter-spacing: -0.025em;
+
+  > a {
+    color: #fff;
+    text-decoration: none;
+  }
 `
 
 const ContactInfo = styled.div`

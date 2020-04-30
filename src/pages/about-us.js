@@ -38,9 +38,9 @@ function AboutUs({data}) {
       </hgroup>
       <Article highlight="even">
         <Mission>
-          <Quote>&ldquo;</Quote>
+          <LeftQuote>&ldquo;</LeftQuote>
           {content.text}
-          <Quote>&rdquo;</Quote>
+          <RightQuote>&rdquo;</RightQuote>
         </Mission>
       </Article>
       <Article highlight="even">
@@ -88,13 +88,21 @@ export const pageQuery = graphql`
 
 const Mission = styled.h2`
   margin-bottom: 0;
+  font-size: ${rem(5)};
   font-weight: 500;
   font-style: italic;
 `
 
-const Quote = styled.span`
-  position: fixed;
-  display: none;
-  transform: translate(-${rem(4)});
+const LeftQuote = styled.span`
+  position: absolute;
+  color: rgba(0, 0, 0, 0.075);
   font-size: ${rem(30)};
+  transform: translate(${rem(-6)}, ${rem(-8)});
+`
+
+const RightQuote = styled.span`
+  position: absolute;
+  color: rgba(0, 0, 0, 0.075);
+  font-size: ${rem(30)};
+  transform: translate(${rem(-8)}, ${rem(-2)});
 `
