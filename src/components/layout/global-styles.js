@@ -200,6 +200,7 @@ export default createGlobalStyle`
 
   a {
     color: #0074d9;
+    letter-spacing: -0.025em;
     text-decoration: underline;
   }
 `

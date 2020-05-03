@@ -1,4 +1,12 @@
-import {bool, string, shape, arrayOf} from 'prop-types'
+import {bool, string, object, shape, arrayOf} from 'prop-types'
+
+export const fixedImageShape = shape({
+  localFile: shape({
+    childImageSharp: shape({
+      fixed: object.isRequired,
+    }).isRequired,
+  }).isRequired,
+})
 
 export const htmlShape = shape({
   html: string.isRequired,

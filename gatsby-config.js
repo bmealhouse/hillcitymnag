@@ -69,8 +69,8 @@ module.exports = {
         podcastId: process.env.HCAG_BUZZSPROUT_PODCAST_ID,
       },
     },
-    'gatsby-transformer-sharp', // TODO: research this plugin
-    'gatsby-plugin-sharp', // TODO: research this plugin
+    'gatsby-plugin-sharp',
+    'gatsby-transformer-sharp',
     {
       resolve: 'gatsby-plugin-typography', // TODO: configure this plugin
       options: {
