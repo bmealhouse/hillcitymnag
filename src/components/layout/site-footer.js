@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import {Container, Small, UnorderedList} from 'src/components'
 import {Calendar} from 'src/pages/events'
 import {htmlShape, linksShape, textShape, rem, screens} from 'src/utils'
-import Donate from './donate'
+import DonateLink from './donate-link'
 import {linkGroups} from './site-header'
 import locationMap from './location-map.png'
 
@@ -33,8 +33,8 @@ function SiteFooter({name, links, address, phone, email}) {
                     )
                     .map(({id, text, route}) => (
                       <ListItem key={id}>
-                        {id === 'Donate-undefined' ? (
-                          <Donate />
+                        {id === 'donate' ? (
+                          <DonateLink />
                         ) : (
                           <Link
                             to={route}
@@ -154,7 +154,7 @@ const ContactInfo = styled.div`
     > section {
       width: 33.333333%;
       margin: 0;
-      padding: ${rem(5)} ${rem(8)};
+      padding: ${rem(3)} ${rem(8)};
       padding-right: 0;
     }
   }

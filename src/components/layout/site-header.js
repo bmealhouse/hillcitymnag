@@ -7,7 +7,7 @@ import website from 'config/website'
 import {Small} from 'src/components'
 import {Calendar} from 'src/pages/events'
 import {linksShape, rem, screens} from 'src/utils'
-import Donate from './donate'
+import DonateLink from './donate-link'
 import logo from './light-logo.svg'
 
 SiteHeader.propTypes = {
@@ -67,12 +67,8 @@ function SiteHeader({links}) {
                       )
                       .map(({id, text, route}) => (
                         <li key={id}>
-                          {id === 'Donate-undefined' ? (
-                            <Donate
-                              onClick={() => {
-                                setIsOpen(false)
-                              }}
-                            />
+                          {id === 'donate' ? (
+                            <DonateLink />
                           ) : (
                             <Link
                               to={route}
@@ -119,12 +115,8 @@ function SiteHeader({links}) {
                     )
                     .map(({id, text, route}) => (
                       <li key={id}>
-                        {id === 'Donate-undefined' ? (
-                          <Donate
-                            onClick={() => {
-                              setIsOpen(false)
-                            }}
-                          />
+                        {id === 'donate' ? (
+                          <DonateLink />
                         ) : (
                           <Link
                             to={route}
@@ -155,13 +147,9 @@ function SiteHeader({links}) {
 export default React.memo(SiteHeader)
 
 export const linkGroups = {
-  church: ['Church-church', 'Beliefs-beliefs', 'About Us-about_us'],
-  connect: [
-    'Connect - Children-connect_children',
-    'Connect - Youth-connect_youth',
-    'Connect - Adult-connect_adult',
-  ],
-  resources: ['Events-events', 'Sermons-sermons', 'Donate-undefined'],
+  church: ['church', 'beliefs', 'about_us'],
+  connect: ['connect_children', 'connect_youth', 'connect_adult'],
+  resources: ['events', 'messages', 'donate'],
 }
 
 const Header = styled.header`

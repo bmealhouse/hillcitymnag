@@ -53,10 +53,12 @@ function Layout({children}) {
     }
   `)
 
+  console.log(data.links)
+
   const links = data.links.map((link) => ({
     ...link,
-    id: `${link.text}-${link.route?.type}`,
-    text: link.text === 'Church' ? 'Only in a Church' : link.text,
+    id: link.route?.type || 'donate',
+    text: link.text,
     route: {
       church: '/only-in-a-church',
       beliefs: '/beliefs',
@@ -65,9 +67,9 @@ function Layout({children}) {
       connect_adult: '/connect/adult',
       about_us: '/about-us',
       events: '/events',
-      sermons: '/messages', // TODO: fix page
-      null: null,
-    }[link.route?.type],
+      messages: '/messages',
+      donate: null,
+    }[link.route?.type || 'donate'],
   }))
 
   return (

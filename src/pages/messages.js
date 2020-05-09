@@ -57,8 +57,8 @@ function Messages({data}) {
 export default React.memo(Messages)
 
 export const pageQuery = graphql`
-  query SermonsQuery {
-    page: prismicSermons {
+  query MessagesQuery {
+    page: prismicMessages {
       data {
         heading {
           text

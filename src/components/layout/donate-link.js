@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-export default function () {
+export default function DonateLink() {
   return (
     <form
       action="https://www.paypal.com/cgi-bin/webscr"
