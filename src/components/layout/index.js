@@ -4,6 +4,7 @@ import {useStaticQuery, graphql} from 'gatsby'
 import styled from 'styled-components'
 import website from 'config/website'
 import {Container} from 'src/components'
+import routeMap from 'src/route-map'
 import {rem} from 'src/utils'
 import GlobalStyles from './global-styles'
 // import SkipNavLink from './skip-nav-link'
@@ -53,23 +54,11 @@ function Layout({children}) {
     }
   `)
 
-  console.log(data.links)
-
   const links = data.links.map((link) => ({
     ...link,
     id: link.route?.type || 'donate',
     text: link.text,
-    route: {
-      church: '/only-in-a-church',
-      beliefs: '/beliefs',
-      connect_children: '/connect/children',
-      connect_youth: '/connect/youth',
-      connect_adult: '/connect/adult',
-      about_us: '/about-us',
-      events: '/events',
-      messages: '/messages',
-      donate: null,
-    }[link.route?.type || 'donate'],
+    route: routeMap[link.route?.type || 'donate'],
   }))
 
   return (
