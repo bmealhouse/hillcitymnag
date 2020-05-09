@@ -27,6 +27,8 @@ export default function Calendar({events}) {
         height="auto"
         contentHeight="auto"
         events={events}
+        eventBackgroundColor="#18371b"
+        eventBorderColor="#18371b"
         eventRender={(info) => {
           const {description} = info.event.extendedProps
 
@@ -43,18 +45,38 @@ export default function Calendar({events}) {
 }
 
 const FullCalendarStyles = createGlobalStyle`
-  .fc-toolbar h2 {
+  .fc-unthemed .fc-toolbar h2 {
     color: hsla(47, 21%, 15%, 0.5);
     font-size: 1.51572rem;
   }
 
-  .fc-view-container table {
+  .fc-unthemed .fc-button-primary {
+    padding: ${rem(1)} ${rem(2)};
+    background-color: hsl(125.8, 39.2%, 15.5%);
+    border-color: transparent;
+
+    &:hover {
+      background-color: hsla(125.8, 39.2%, 15.5%, 0.5);
+      border-color: transparent;
+    }
+
+    &:disabled {
+      background-color: hsl(125.8, 39.2%, 15.5%);
+      border-color: transparent;
+    }
+  }
+
+  .fc-unthemed .fc-view-container table {
     margin: 0;
   }
 
-  .fc-event-container .fc-content {
+  .fc-unthemed .fc-event-container .fc-content {
     font-size: ${rem('xs')};
     letter-spacing: -0.025em;
+  }
+
+  .fc-unthemed .fc-day-grid td.fc-today {
+    background: hsla(47, 21%, 92%, 0.75);
   }
 
   .tippy-box {
