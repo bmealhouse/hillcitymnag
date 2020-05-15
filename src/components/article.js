@@ -22,6 +22,10 @@ const ArticleElement = styled.article`
   margin-top: ${rem(10)};
   margin-bottom: ${rem(10)};
 
+  p:last-of-type {
+    margin-bottom: 0;
+  }
+
   ${(props) =>
     props.highlight &&
     css`

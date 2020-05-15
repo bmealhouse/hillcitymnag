@@ -2,10 +2,10 @@ import styled from 'styled-components'
 import {rem} from 'src/utils'
 
 export default styled.div`
-  margin-top: ${rem(3)};
+  margin-top: ${rem(4)};
 
   p {
-    margin-bottom: ${rem(3)};
+    margin-bottom: ${rem(4)};
     text-align: justify;
   }
 

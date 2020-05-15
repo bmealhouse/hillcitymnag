@@ -203,4 +203,8 @@ export default createGlobalStyle`
     letter-spacing: -0.025em;
     text-decoration: underline;
   }
+
+  iframe {
+    margin: 0;
+  }
 `

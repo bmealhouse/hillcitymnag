@@ -1,5 +1,5 @@
 import React from 'react'
-import {string, shape} from 'prop-types'
+import {string, shape, arrayOf} from 'prop-types'
 import {createGlobalStyle} from 'styled-components'
 import FullCalendar from '@fullcalendar/react'
 import dayGridPlugin from '@fullcalendar/daygrid'
@@ -10,11 +10,13 @@ import '@fullcalendar/daygrid/main.css' // eslint-disable-line import/no-unassig
 import 'tippy.js/dist/tippy.css' // eslint-disable-line import/no-unassigned-import
 
 Calendar.propTypes = {
-  events: shape({
-    title: string.isRequired,
-    start: string.isRequired,
-    description: string,
-  }).isRequired,
+  events: arrayOf(
+    shape({
+      title: string.isRequired,
+      start: string.isRequired,
+      description: string,
+    }).isRequired,
+  ),
 }
 
 export default function Calendar({events}) {
