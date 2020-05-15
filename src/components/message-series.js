@@ -7,7 +7,7 @@ import {Helmet} from 'react-helmet'
 import {format} from 'date-fns'
 import prettyMs from 'pretty-ms'
 import {HtmlContent} from 'src/components'
-import {rem, screens} from 'src/utils'
+import {rem, screens, useMedia} from 'src/utils'
 
 MessageSeries.propTypes = {
   name: string.isRequired,
@@ -24,6 +24,7 @@ MessageSeries.propTypes = {
 
 function MessageSeries({name, messages}) {
   const [selectedMessage, setSelectedMessage] = useState(messages[0])
+  const isMobile = useMedia([`(min-width: ${screens.sm})`], [false], true)
 
   return (
     <>
@@ -66,12 +67,14 @@ function MessageSeries({name, messages}) {
               </td>
               <td>{message.title}</td>
               <td>{format(new Date(message.publishedAt), 'L/d/yyyy')}</td>
-              <td>
-                {prettyMs(
-                  message.duration * 1000 - (message.duration % 60) * 1000,
-                  {unitCount: 2},
-                )}
-              </td>
+              {!isMobile && (
+                <td>
+                  {prettyMs(
+                    message.duration * 1000 - (message.duration % 60) * 1000,
+                    {unitCount: 2},
+                  )}
+                </td>
+              )}
             </TableRow>
           ))}
         </tbody>
@@ -105,11 +108,7 @@ const SeriesTitle = styled.h3`
 `
 
 const TableRow = styled.tr`
-  font-size: ${rem('xs')};
-
-  @media (min-width: ${screens.sm}) {
-    font-size: ${rem('sm')};
-  }
+  font-size: ${rem('sm')};
 
   svg {
     color: ${(props) =>
