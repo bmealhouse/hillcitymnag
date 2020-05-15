@@ -1,5 +1,5 @@
 import React from 'react'
-import {string, number, object, shape, arrayOf} from 'prop-types'
+import {string, number, shape, arrayOf} from 'prop-types'
 import {graphql} from 'gatsby'
 import {buildMessages} from '../../gatsby-node'
 import {
@@ -35,7 +35,9 @@ Messages.propTypes = {
       ).isRequired,
     }).isRequired,
   }).isRequired,
-  pageContext: object.isRequired,
+  pageContext: shape({
+    pageNumber: number.isRequired,
+  }).isRequired,
 }
 
 function Messages({data, pageContext}) {
@@ -46,7 +48,11 @@ function Messages({data, pageContext}) {
     allBuzzsproutPodcastEpisode,
   } = data
 
-  const messages = buildMessages(allBuzzsproutPodcastEpisode).slice(0, 5)
+  const startIndex = pageContext.pageNumber * 5
+  const messages = buildMessages(allBuzzsproutPodcastEpisode).slice(
+    startIndex,
+    startIndex + 5,
+  )
 
   return (
     <Layout>
@@ -72,7 +78,7 @@ function Messages({data, pageContext}) {
 export default React.memo(Messages)
 
 export const pageQuery = graphql`
-  query PaginatedMessagesQuery($skip: Int!) {
+  query MessagesQuery {
     page: prismicMessages {
       data {
         heading {
@@ -80,11 +86,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    allBuzzsproutPodcastEpisode(
-      sort: {fields: [published_at], order: DESC}
-      skip: $skip
-      limit: 20
-    ) {
+    allBuzzsproutPodcastEpisode(sort: {fields: [published_at], order: DESC}) {
       edges {
         node {
           id

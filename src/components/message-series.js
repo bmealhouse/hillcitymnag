@@ -7,7 +7,7 @@ import {Helmet} from 'react-helmet'
 import {format} from 'date-fns'
 import prettyMs from 'pretty-ms'
 import {HtmlContent} from 'src/components'
-import {rem} from 'src/utils'
+import {rem, screens} from 'src/utils'
 
 MessageSeries.propTypes = {
   name: string.isRequired,
@@ -61,11 +61,10 @@ function MessageSeries({name, messages}) {
                 }
               }}
             >
-              <td>
+              <td css="padding-right: 0;">
                 <FontAwesomeIcon icon={faStarOfLife} />
-                &nbsp;&nbsp;&nbsp;
-                {message.title}
               </td>
+              <td>{message.title}</td>
               <td>{format(new Date(message.publishedAt), 'L/d/yyyy')}</td>
               <td>
                 {prettyMs(
@@ -106,7 +105,11 @@ const SeriesTitle = styled.h3`
 `
 
 const TableRow = styled.tr`
-  font-size: ${rem('sm')};
+  font-size: ${rem('xs')};
+
+  @media (min-width: ${screens.sm}) {
+    font-size: ${rem('sm')};
+  }
 
   svg {
     color: ${(props) =>
