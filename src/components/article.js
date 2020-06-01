@@ -1,9 +1,10 @@
 import React from 'react'
-import {node, oneOf} from 'prop-types'
+import {string, node, oneOf} from 'prop-types'
 import styled, {css} from 'styled-components'
 import {rem, screens} from 'src/utils'
 
 Article.propTypes = {
+  id: string,
   children: node.isRequired,
   highlight: oneOf(['even', 'odd']),
 }
@@ -12,8 +13,12 @@ Article.defaultProps = {
   highlight: null,
 }
 
-function Article({children, highlight}) {
-  return <ArticleElement highlight={highlight}>{children}</ArticleElement>
+function Article({id, children, highlight}) {
+  return (
+    <ArticleElement id={id} highlight={highlight}>
+      {children}
+    </ArticleElement>
+  )
 }
 
 export default React.memo(Article)

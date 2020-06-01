@@ -8,6 +8,7 @@ exports.createPages = async ({actions: {createPage}, graphql}) => {
     `
       {
         allBuzzsproutPodcastEpisode(
+          filter: {duration: {ne: null}}
           sort: {fields: [published_at], order: DESC}
         ) {
           edges {

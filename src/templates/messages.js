@@ -61,11 +61,15 @@ function Messages({data, pageContext}) {
       </hgroup>
       {messages.map((message) =>
         message.type === 'MESSAGE_SERIES' ? (
-          <Article key={message.name} highlight="even">
+          <Article
+            key={message.name}
+            id={message.name.replace(/\s/g, '-')}
+            highlight="even"
+          >
             <MessageSeries {...message} />
           </Article>
         ) : (
-          <Article key={message.id} highlight="even">
+          <Article key={message.id} id={message.slug} highlight="even">
             <MessageStandalone {...message} />
           </Article>
         ),
@@ -86,7 +90,10 @@ export const pageQuery = graphql`
         }
       }
     }
-    allBuzzsproutPodcastEpisode(sort: {fields: [published_at], order: DESC}) {
+    allBuzzsproutPodcastEpisode(
+      filter: {duration: {ne: null}}
+      sort: {fields: [published_at], order: DESC}
+    ) {
       edges {
         node {
           id

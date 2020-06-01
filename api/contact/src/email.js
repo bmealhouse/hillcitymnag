@@ -1,6 +1,6 @@
 const sg = require('sendgrid')(process.env.HCAG_SENDGRID_API_KEY)
 
-module.exports = data => {
+module.exports = ({name, email, message}) => {
   const request = sg.emptyRequest()
 
   request.method = 'POST'
@@ -8,18 +8,25 @@ module.exports = data => {
   request.body = {
     personalizations: [
       {
-        to: [{email: 'hillcityagchurch@gmail.com'}],
+        to: [
+          {
+            email:
+              email === 'bmealhouse@gmail.com'
+                ? email
+                : 'hillcityagchurch@gmail.com',
+          },
+        ],
         subject: 'Message from https://www.hillcitymnag.church',
       },
     ],
     from: {
-      name: data.name,
-      email: data.email,
+      name,
+      email,
     },
     content: [
       {
         type: 'text/plain',
-        value: data.message,
+        value: message,
       },
     ],
   }

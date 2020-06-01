@@ -9,7 +9,6 @@ const addImport = require('./add-import.js')
 const getStyles = require('./get-styles.js')
 const replaceWithLocation = require('./replace-with-location.js')
 
-console.log('create Macro')
 export default createMacro(
   ({babel: {types: t}, references, state, config}) => {
     const sourceRoot = state.file.opts.sourceRoot || '.'
@@ -62,9 +61,9 @@ export default createMacro(
         if (path.node.name.name !== 'tw') return
         const styles = getStyles(path.node.value.value, t, state)
         const attrs = path
-          .findParent(p => p.isJSXOpeningElement())
+          .findParent((p) => p.isJSXOpeningElement())
           .get('attributes')
-        const cssAttr = attrs.filter(p => p.node.name.name === 'css')
+        const cssAttr = attrs.filter((p) => p.node.name.name === 'css')
 
         if (cssAttr.length > 0) {
           path.remove()
@@ -85,8 +84,8 @@ export default createMacro(
       },
     })
 
-    references.default.forEach(path => {
-      const parent = path.findParent(x => x.isTaggedTemplateExpression())
+    references.default.forEach((path) => {
+      const parent = path.findParent((x) => x.isTaggedTemplateExpression())
       if (!parent) return
 
       const parsed = parseTte({
