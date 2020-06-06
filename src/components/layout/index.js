@@ -9,6 +9,7 @@ import {rem} from 'src/utils'
 import GlobalStyles from './global-styles'
 // import SkipNavLink from './skip-nav-link'
 import SiteHeader from './site-header'
+import ContactUs from './contact-us'
 import SiteFooter from './site-footer'
 import '@reach/skip-nav/styles.css' // eslint-disable-line import/no-unassigned-import
 import 'typeface-roboto' // eslint-disable-line import/no-unassigned-import
@@ -69,6 +70,7 @@ function Layout({children}) {
         <SiteHeader {...data} links={links} />
         <Main id={website.skipNavId}>{children}</Main>
       </Container>
+      <ContactUs />
       <SiteFooter {...data} links={links} />
     </>
   )
