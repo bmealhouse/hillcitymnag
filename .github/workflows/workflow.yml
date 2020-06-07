@@ -1,2 +1,10 @@
-- name: Codecov
-  uses: codecov/codecov-action@v1.0.7
+name: Workflow
+on: push
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Codecov
+        uses: codecov/codecov-action@v1.0.7
