@@ -1,7 +1,7 @@
 import React from 'react'
 import {string, number, shape, arrayOf} from 'prop-types'
 import {graphql} from 'gatsby'
-import {buildMessages} from '../../gatsby-node'
+import buildMessages from 'src/build-messages'
 import {
   Layout,
   Article,
