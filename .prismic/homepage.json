@@ -1,28 +1,24 @@
 {
-  "Main" : {
-    "title" : {
-      "type" : "StructuredText",
-      "config" : {
-        "single" : "heading1",
-        "label" : "title",
-        "placeholder" : "Title of the page"
+  "Main": {
+    "heading": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1",
+        "label": "Heading"
       }
     },
-    "content" : {
-      "type" : "StructuredText",
-      "config" : {
-        "multi" : "paragraph, strong, em, hyperlink, image, embed, list-item, o-list-item",
-        "label" : "content",
-        "placeholder" : "Content under the title"
+    "service_time": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading3",
+        "label": "Service time"
       }
     },
-    "footer" : {
-      "type" : "StructuredText",
-      "config" : {
-        "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
-        "allowTargetBlank" : true,
-        "label" : "Footer",
-        "placeholder" : "Footer"
+    "subheading": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading2",
+        "label": "Subheading"
       }
     }
   }

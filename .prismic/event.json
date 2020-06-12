@@ -1,0 +1,34 @@
+{
+  "Main": {
+    "title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading2",
+        "label": "Title"
+      }
+    },
+    "description": {
+      "type": "StructuredText",
+      "config": {
+        "single": "strong, em, hyperlink",
+        "allowTargetBlank": true,
+        "label": "Description"
+      }
+    },
+    "date_time": {
+      "type": "Timestamp",
+      "config": {
+        "label": "Date/time"
+      }
+    },
+    "display_on_homepage": {
+      "type": "Boolean",
+      "config": {
+        "placeholder_false": "no",
+        "placeholder_true": "yes",
+        "default_value": false,
+        "label": "Display on homepage"
+      }
+    }
+  }
+}

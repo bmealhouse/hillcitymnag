@@ -1,0 +1,34 @@
+{
+  "Main": {
+    "heading": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1",
+        "label": "Heading"
+      }
+    },
+    "beliefs": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "belief_heading": {
+            "type": "StructuredText",
+            "config": {
+              "single": "heading2",
+              "label": "Belief heading"
+            }
+          },
+          "belief_content": {
+            "type": "StructuredText",
+            "config": {
+              "multi": "paragraph, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, list-item, o-list-item, o-list-item",
+              "allowTargetBlank": true,
+              "label": "Belief content"
+            }
+          }
+        },
+        "label": "Beliefs"
+      }
+    }
+  }
+}
