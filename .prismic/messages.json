@@ -6,6 +6,12 @@
         "single": "heading1",
         "label": "Heading"
       }
+    },
+    "deployment_increment": {
+      "type": "Number",
+      "config": {
+        "label": "Deployment increment"
+      }
     }
   }
 }
