@@ -6,7 +6,6 @@ export default styled.div`
 
   p {
     margin-bottom: ${rem(4)};
-    text-align: justify;
   }
 
   h3,
