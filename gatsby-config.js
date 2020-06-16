@@ -36,7 +36,7 @@ module.exports = {
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-styled-components',
     {
-      resolve: 'gatsby-source-prismic', // TODO: research this plugin
+      resolve: 'gatsby-source-prismic', // FIXME: update this plugin
       options: {
         repositoryName: 'hillcitymnag',
         accessToken: `${process.env.HCAG_PRISMIC_API_KEY}`,
@@ -60,13 +60,13 @@ module.exports = {
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     {
-      resolve: 'gatsby-plugin-typography', // TODO: configure this plugin
+      resolve: 'gatsby-plugin-typography', // FIXME: remove this plugin
       options: {
         pathToConfigModule: 'config/typography.js',
       },
     },
     {
-      resolve: 'gatsby-plugin-google-analytics', // TODO: configure this plugin
+      resolve: 'gatsby-plugin-google-analytics',
       options: {
         trackingId: website.googleAnalyticsID,
       },

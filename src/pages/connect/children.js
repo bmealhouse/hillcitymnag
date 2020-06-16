@@ -30,7 +30,6 @@ function Children({data}) {
         <H2Kicker>{subheading.text}</H2Kicker>
       </hgroup>
       <Article>
-        {/* TODO: fix inner html styling */}
         <HtmlContent
           dangerouslySetInnerHTML={{
             __html: content.html,

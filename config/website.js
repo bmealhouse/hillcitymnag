@@ -6,22 +6,19 @@ module.exports = {
   title: 'Hill City Assembly of God Church', // Navigation and Site Title
   titleAlt: 'Hill City Assembly of God Church', // Title for JSONLD
   url: 'https://hillcitymnag.church', // Domain of your site. No trailing slash!
-
-  // TODO
-
-  description:
-    'A typography-heavy & light-themed Gatsby Starter which uses the Headless CMS Prismic.',
-  headline: 'Writing and publishing content for LekoArts', // Headline for schema.org JSONLD
-  logo: '/logos/logo-1024.png', // Used for SEO
+  description: 'Pentecostal church located in Hill City, MN',
+  headline:
+    'We’re here to partner with you in finding your place, deepening your faith, and equipping you to make a difference.', // Headline for schema.org JSONLD
+  // logo: '/logos/logo-1024.png', // Used for SEO
 
   // JSONLD / Manifest
   favicon: 'src/favicon.png', // Used for manifest favicon generation
-  shortName: 'Prismic', // shortname for manifest. MUST be shorter than 12 characters
-  author: 'LekoArts', // Author for schemaORGJSONLD
-  themeColor: '#3D63AE',
-  backgroundColor: '#EBEDF2',
+  shortName: 'Hill City AG', // shortname for manifest. MUST be shorter than 12 characters
+  author: 'Lisa Jordan', // Author for schemaORGJSONLD
+  themeColor: '#18371b',
+  backgroundColor: '#ffffff',
 
-  twitter: '@starter_prismicio', // Twitter Username
-  facebook: 'gatsby-prismic', // Facebook Site Name
-  googleAnalyticsID: 'UA-47519312-7',
+  // twitter: '', // Twitter username
+  // facebook: '', // Facebook site name
+  googleAnalyticsID: 'UA-169609897-1',
 }
