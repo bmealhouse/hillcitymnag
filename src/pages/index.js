@@ -165,12 +165,6 @@ const RecentUpdates = styled.ul`
   @media (min-width: ${screens.md}) {
     flex-direction: row;
     margin: 0 ${rem(-4)};
-
-    > * {
-      p {
-        text-align: left;
-      }
-    }
   }
 `
 
