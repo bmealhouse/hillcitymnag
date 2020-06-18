@@ -72,6 +72,7 @@ export default function Homepage({data}) {
             <Item key={item.id}>
               <h4>{item.title}</h4>
               <Link
+                css="display: block;"
                 to={
                   item.type === 'EVENT'
                     ? `/events/#${item.hashtag}`

@@ -16,7 +16,10 @@ SiteHeader.propTypes = {
 
 function SiteHeader({links}) {
   const [isOpen, setIsOpen] = useState(false)
-  const [openGroup, setOpenGroup] = useState(null)
+  const [navState, setNavState] = useState({
+    openGroup: null,
+    action: null,
+  })
 
   let leaveTimeoutId
   useEffect(() => {
@@ -38,25 +41,40 @@ function SiteHeader({links}) {
                 <MenuGroup
                   onMouseEnter={() => {
                     clearTimeout(leaveTimeoutId)
-                    setOpenGroup(group)
+                    setNavState((previousState) => {
+                      if (previousState.openGroup !== group) {
+                        return {openGroup: group, trigger: 'hover'}
+                      }
+
+                      return {openGroup: null, trigger: null}
+                    })
                   }}
                   onMouseLeave={() => {
                     leaveTimeoutId = setTimeout(() => {
-                      setOpenGroup(null)
-                    }, 100)
+                      setNavState({openGroup: null, tigger: null})
+                    }, 150)
+                  }}
+                  onClick={() => {
+                    setNavState((previousState) => {
+                      if (previousState.openGroup !== group) {
+                        return {openGroup: group, trigger: 'click'}
+                      }
+
+                      return {openGroup: null, trigger: null}
+                    })
                   }}
                 >
                   {group}
                 </MenuGroup>
                 <Submenu
-                  isOpen={openGroup === group}
+                  isOpen={navState.openGroup === group}
                   onMouseEnter={() => {
                     clearTimeout(leaveTimeoutId)
                   }}
                   onMouseLeave={() => {
                     leaveTimeoutId = setTimeout(() => {
-                      setOpenGroup(null)
-                    }, 100)
+                      setNavState({openGroup: null, trigger: null})
+                    }, 150)
                   }}
                 >
                   <ul>
@@ -79,6 +97,7 @@ function SiteHeader({links}) {
                               }}
                               onClick={() => {
                                 setIsOpen(false)
+                                setNavState({openGroup: null, trigger: null})
                               }}
                             >
                               {text.replace('Connect - ', '')}

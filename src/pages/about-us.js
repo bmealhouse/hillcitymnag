@@ -2,7 +2,7 @@ import React from 'react'
 import {string, shape, arrayOf} from 'prop-types'
 import styled from 'styled-components'
 import {graphql} from 'gatsby'
-import Image from 'gatsby-image'
+import Image from 'gatsby-image/withIEPolyfill'
 import {Layout, Article} from 'src/components'
 import {fixedImageShape, htmlShape, textShape, rem, screens} from 'src/utils'
 
@@ -50,13 +50,14 @@ function AboutUs({data}) {
         {teamMembers.map((teamMember) => (
           <TeamMember key={teamMember.name.text}>
             <Image
+              fixed={teamMember.photo.localFile.childImageSharp.fixed}
+              objectFit="cover"
+              objectPosition="50% 50%"
+              alt={`${teamMember.name.text} photo`}
               style={{
-                width: rem(40),
                 border: '2px solid hsla(47, 21%, 80%, 0.5)',
                 borderRadius: '9999px',
               }}
-              alt={`${teamMember.name.text} photo`}
-              fixed={teamMember.photo.localFile.childImageSharp.fixed}
             />
             <TeamMemberDetails>
               <Name>{teamMember.name.text}</Name>
@@ -90,7 +91,7 @@ export const pageQuery = graphql`
           photo: team_member_photo {
             localFile {
               childImageSharp {
-                fixed(width: 196, quality: 90) {
+                fixed(width: 196, height: 196, quality: 90) {
                   ...GatsbyImageSharpFixed_withWebp
                 }
               }
