@@ -2,7 +2,7 @@ const microCors = require('micro-cors')
 const post = require('micro-post')
 const microSentry = require('micro-sentry')
 
-module.exports = fn => {
+module.exports = (fn) => {
   const cors = microCors({
     allowMethods: ['POST'],
     allowHeaders: ['Access-Control-Allow-Origin', 'Content-Type'],
@@ -11,6 +11,7 @@ module.exports = fn => {
   })
 
   if (process.env.NODE_ENV === 'production') {
+    console.log(process.env.HCAG_SENTRY_DSN)
     fn = microSentry(process.env.HCAG_SENTRY_DSN)(fn)
   }
 
