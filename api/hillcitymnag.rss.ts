@@ -12,6 +12,10 @@ export default async (request: NowRequest, response: NowResponse) => {
       /<itunes:explicit>false<\/itunes:explicit>/g,
       '<itunes:explicit>no</itunes:explicit>',
     )
+    .replace(
+      /https:\/\/feeds.buzzsprout.com\/140598.rss/g,
+      'https://hillcitymnag.church/api/hillcitymnag.rss',
+    )
 
   response.setHeader('content-type', 'application/rss+xml')
   response.status(200).send(validFeed)
