@@ -81,6 +81,7 @@
     "gatsby-source-buzzsprout": "0.3.1",
     "gatsby-source-prismic": "2.2.0",
     "gatsby-transformer-sharp": "2.5.0",
+    "got": "11.5.0",
     "isomorphic-unfetch": "3.0.0",
     "pretty-ms": "7.0.0",
     "prismic-dom": "2.2.3",
@@ -98,6 +99,7 @@
   },
   "devDependencies": {
     "@types/react": "16.9.34",
+    "@vercel/node": "1.7.1",
     "babel-eslint": "10.1.0",
     "babel-plugin-styled-components": "1.10.7",
     "cross-env": "7.0.2",
@@ -114,7 +116,7 @@
     "lint-staged": "10.2.0",
     "now": "18.0.0",
     "prettier": "2.0.5",
-    "typescript": "3.8.3",
+    "typescript": "3.9.6",
     "xo": "0.30.0"
   },
   "scripts": {
