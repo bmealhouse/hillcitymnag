@@ -50,7 +50,7 @@ function AboutUs({data}) {
         {teamMembers.map((teamMember) => (
           <TeamMember key={teamMember.name.text}>
             <Image
-              fixed={teamMember.photo.localFile.childImageSharp.fixed}
+              fixed={teamMember.photo.fixed}
               objectFit="cover"
               objectPosition="50% 50%"
               alt={`${teamMember.name.text} photo`}
@@ -89,12 +89,8 @@ export const pageQuery = graphql`
         }
         teamMembers: team_members {
           photo: team_member_photo {
-            localFile {
-              childImageSharp {
-                fixed(width: 196, height: 196, quality: 90) {
-                  ...GatsbyImageSharpFixed_withWebp
-                }
-              }
+            fixed(width: 196, height: 196) {
+              ...GatsbyPrismicImageFixed
             }
           }
           name: team_member_name {
