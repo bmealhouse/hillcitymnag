@@ -5,8 +5,6 @@ import FullCalendar from '@fullcalendar/react'
 import dayGridPlugin from '@fullcalendar/daygrid'
 import tippy from 'tippy.js'
 import {rem} from 'src/utils'
-import '@fullcalendar/core/main.css' // eslint-disable-line import/no-unassigned-import
-import '@fullcalendar/daygrid/main.css' // eslint-disable-line import/no-unassigned-import
 import 'tippy.js/dist/tippy.css' // eslint-disable-line import/no-unassigned-import
 
 Calendar.propTypes = {
@@ -24,14 +22,14 @@ export default function Calendar({events}) {
     <>
       <FullCalendarStyles />
       <FullCalendar
-        defaultView="dayGridMonth"
+        initialView="dayGridMonth"
         plugins={[dayGridPlugin]}
         height="auto"
         contentHeight="auto"
         events={events}
         eventBackgroundColor="#18371b"
         eventBorderColor="#18371b"
-        eventRender={(info) => {
+        eventDidMount={(info) => {
           const {description} = info.event.extendedProps
 
           if (description) {
@@ -47,12 +45,12 @@ export default function Calendar({events}) {
 }
 
 const FullCalendarStyles = createGlobalStyle`
-  .fc-unthemed .fc-toolbar h2 {
+  .fc .fc-toolbar .fc-toolbar-title {
     color: hsla(47, 21%, 15%, 0.5);
     font-size: 1.51572rem;
   }
 
-  .fc-unthemed .fc-button-primary {
+  .fc .fc-toolbar .fc-button-primary {
     padding: ${rem(1)} ${rem(2)};
     background-color: hsl(125.8, 39.2%, 15.5%);
     border-color: transparent;
@@ -68,16 +66,22 @@ const FullCalendarStyles = createGlobalStyle`
     }
   }
 
-  .fc-unthemed .fc-view-container table {
+  .fc .fc-scrollgrid table {
     margin: 0;
   }
 
-  .fc-unthemed .fc-event-container .fc-content {
-    font-size: ${rem('xs')};
-    letter-spacing: -0.025em;
+  .fc a {
+    color: #333;
+    text-decoration: none;
   }
 
-  .fc-unthemed .fc-day-grid td.fc-today {
+  .fc .fc-daygrid-body .fc-daygrid-event {
+    font-size: ${rem('xs')};
+    letter-spacing: -0.025em;
+    cursor: default;
+  }
+
+  .fc .fc-daygrid-body .fc-daygrid-day.fc-day-today {
     background: hsla(47, 21%, 92%, 0.75);
   }
 
