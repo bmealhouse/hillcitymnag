@@ -1,10 +1,6 @@
 const path = require('path')
-const sharp = require('sharp')
 const {paginate} = require('gatsby-awesome-pagination')
 const buildMessages = require('./src/build-messages')
-
-sharp.cache(false)
-sharp.simd(true)
 
 exports.createPages = async ({actions: {createPage}, graphql}) => {
   const {
