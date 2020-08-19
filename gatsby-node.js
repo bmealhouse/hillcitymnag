@@ -2,10 +2,6 @@ const path = require('path')
 const {paginate} = require('gatsby-awesome-pagination')
 const buildMessages = require('./src/build-messages')
 
-// const sharp = require('sharp')
-// sharp.cache(false)
-// sharp.simd(true)
-
 exports.createPages = async ({actions: {createPage}, graphql}) => {
   const {
     data: {allBuzzsproutPodcastEpisode},

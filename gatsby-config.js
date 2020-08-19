@@ -71,8 +71,6 @@ module.exports = {
         podcastId: process.env.HCAG_BUZZSPROUT_PODCAST_ID,
       },
     },
-    'gatsby-plugin-sharp',
-    'gatsby-transformer-sharp',
     {
       resolve: 'gatsby-plugin-typography', // FIXME: remove this plugin
       options: {
