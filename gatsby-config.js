@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 require('dotenv').config({
   path: '.env.build',
 })
@@ -40,6 +41,19 @@ module.exports = {
       options: {
         repositoryName: 'hillcitymnag',
         accessToken: `${process.env.HCAG_PRISMIC_API_KEY}`,
+        schemas: {
+          about_us: require('./schemas/about_us.json'),
+          beliefs: require('./schemas/beliefs.json'),
+          church: require('./schemas/church.json'),
+          connect_adult: require('./schemas/connect_adult.json'),
+          connect_children: require('./schemas/connect_children.json'),
+          connect_youth: require('./schemas/connect_youth.json'),
+          event: require('./schemas/event.json'),
+          events: require('./schemas/events.json'),
+          homepage: require('./schemas/homepage.json'),
+          layout: require('./schemas/layout.json'),
+          messages: require('./schemas/messages.json'),
+        },
         // Set a link resolver function used to process links in your content.
         // Fields with rich text formatting or links to internal content use this
         // function to generate the correct link URL.
@@ -73,7 +87,6 @@ module.exports = {
     },
     'gatsby-plugin-sitemap',
     {
-      /* eslint-disable camelcase */
       resolve: 'gatsby-plugin-manifest',
       options: {
         name: website.title,
@@ -85,7 +98,6 @@ module.exports = {
         display: 'standalone',
         icon: website.favicon,
       },
-      /* eslint-enable camelcase */
     },
     // Must be placed at the end
     'gatsby-plugin-offline',

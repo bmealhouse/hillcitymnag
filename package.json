@@ -79,7 +79,7 @@
     "gatsby-plugin-styled-components": "3.3.10",
     "gatsby-plugin-typography": "2.5.10",
     "gatsby-source-buzzsprout": "0.3.1",
-    "gatsby-source-prismic": "2.2.0",
+    "gatsby-source-prismic": "3.2.1",
     "gatsby-transformer-sharp": "2.5.13",
     "got": "11.5.2",
     "isomorphic-unfetch": "3.0.0",
