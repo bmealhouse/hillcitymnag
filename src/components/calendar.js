@@ -66,6 +66,15 @@ const FullCalendarStyles = createGlobalStyle`
     }
   }
 
+  .fc .fc-toolbar .fc-toolbar-chunk {
+    display: flex;
+  }
+
+  .fc .fc-toolbar .fc-today-button,
+  .fc .fc-toolbar .fc-button-group {
+    margin-left: ${rem(2)} !important;
+  }
+
   .fc .fc-scrollgrid table {
     margin: 0;
   }
