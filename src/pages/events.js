@@ -1,5 +1,5 @@
 import React from 'react'
-import {string, shape, arrayOf} from 'prop-types'
+import {string, shape, arrayOf, oneOf} from 'prop-types'
 import {graphql} from 'gatsby'
 import loadable from 'react-loadable'
 import {Layout} from 'src/components'
@@ -19,6 +19,13 @@ Events.propTypes = {
             title: textShape.isRequired,
             description: htmlShape.isRequired,
             dateTime: string.isRequired,
+            recurrenceFrequency: oneOf([
+              'Daily',
+              'Weekly',
+              'Monthly',
+              'Yearly',
+            ]),
+            recurrenceEndDate: string,
           }).isRequired,
         }).isRequired,
       ).isRequired,
@@ -49,6 +56,13 @@ function Events({data}) {
           title: event.title.text,
           start: event.dateTime,
           description: event.description.html,
+          ...(event.recurrenceFrequency && {
+            rrule: {
+              freq: event.recurrenceFrequency,
+              dtstart: event.dateTime,
+              until: event.recurrenceEndDate,
+            },
+          }),
         }))}
       />
     </Layout>
@@ -76,6 +90,8 @@ export const pageQuery = graphql`
             html
           }
           dateTime: date_time
+          recurrenceFrequency: recurrence_frequency
+          recurrenceEndDate: recurrence_end_date
         }
       }
     }

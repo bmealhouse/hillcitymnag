@@ -3,6 +3,7 @@ import {string, shape, arrayOf} from 'prop-types'
 import {createGlobalStyle} from 'styled-components'
 import FullCalendar from '@fullcalendar/react'
 import dayGridPlugin from '@fullcalendar/daygrid'
+import rrulePlugin from '@fullcalendar/rrule'
 import tippy from 'tippy.js'
 import {rem} from 'src/utils'
 import 'tippy.js/dist/tippy.css' // eslint-disable-line import/no-unassigned-import
@@ -23,7 +24,7 @@ export default function Calendar({events}) {
       <FullCalendarStyles />
       <FullCalendar
         initialView="dayGridMonth"
-        plugins={[dayGridPlugin]}
+        plugins={[rrulePlugin, dayGridPlugin]}
         height="auto"
         contentHeight="auto"
         events={events}

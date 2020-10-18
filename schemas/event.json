@@ -30,5 +30,20 @@
         "label": "Display on homepage"
       }
     }
+  },
+  "Recurrence": {
+    "recurrence_frequency": {
+      "type": "Select",
+      "config": {
+        "options": ["Daily", "Weekly", "Monthly", "Yearly"],
+        "label": "Recurrence frequency"
+      }
+    },
+    "recurrence_end_date": {
+      "type": "Date",
+      "config": {
+        "label": "Recurrence end date"
+      }
+    }
   }
 }
