@@ -30,14 +30,29 @@ export default function Calendar({events}) {
         eventBackgroundColor="#18371b"
         eventBorderColor="#18371b"
         eventDidMount={(info) => {
-          const {description} = info.event.extendedProps
+          const {
+            start,
+            extendedProps: {description},
+          } = info.event
 
-          if (description) {
-            tippy(info.el, {
-              content: `<h3>${info.event.title}</h3>${description}`,
-              allowHTML: true,
-            })
-          }
+          const date = start.toLocaleDateString('en-US', {
+            weekday: 'short',
+            month: 'short',
+            day: 'numeric',
+            year: 'numeric',
+          })
+
+          const time = start.toLocaleTimeString('en-US', {
+            hour: 'numeric',
+            minute: '2-digit',
+          })
+
+          tippy(info.el, {
+            content: `<h3>${info.event.title}</h3>${
+              description || `${date} @ ${time}`
+            }`,
+            allowHTML: true,
+          })
         }}
       />
     </>
