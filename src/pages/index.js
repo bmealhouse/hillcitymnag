@@ -66,6 +66,15 @@ export default function Homepage({data}) {
         <MissionStatement>{subheading.text}</MissionStatement>
       </Article>
       <Article highlight="even">
+        <Video
+          allowFullScreen
+          title="Christmas Eve 2020"
+          src="https://player.vimeo.com/video/494255078"
+          allow="autoplay; fullscreen"
+          frameBorder="0"
+        />
+      </Article>
+      <Article highlight="odd">
         <h3>Recent Messages & Events</h3>
         <RecentUpdates>
           {recentUpdates.map((item) => (
@@ -195,5 +204,26 @@ const Item = styled.li`
     &:last-of-type {
       border-right-width: 0;
     }
+  }
+`
+
+const Video = styled.iframe`
+  width: 100%;
+  height: 224px;
+
+  @media (min-width: ${screens.sm}) {
+    height: 344px;
+  }
+
+  @media (min-width: ${screens.md}) {
+    height: 372px;
+  }
+
+  @media (min-width: ${screens.lg}) {
+    height: 406px;
+  }
+
+  @media (min-width: ${screens.xl}) {
+    height: 446px; /* 428 */
   }
 `
