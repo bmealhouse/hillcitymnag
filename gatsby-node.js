@@ -4,7 +4,7 @@ const buildMessages = require('./src/build-messages')
 
 exports.createPages = async ({actions: {createPage}, graphql}) => {
   const {
-    data: {allBuzzsproutPodcastEpisode},
+    data: {allBuzzsproutPodcastEpisode, allPrismicVideo},
   } = await graphql(
     `
       {
@@ -16,6 +16,21 @@ exports.createPages = async ({actions: {createPage}, graphql}) => {
             node {
               id
               tags
+              date: published_at
+            }
+          }
+        }
+        allPrismicVideo(
+          sort: {fields: [data___video___upload_date], order: DESC}
+        ) {
+          edges {
+            node {
+              data {
+                video {
+                  id: video_id
+                  date: upload_date
+                }
+              }
             }
           }
         }
@@ -25,7 +40,7 @@ exports.createPages = async ({actions: {createPage}, graphql}) => {
 
   paginate({
     createPage,
-    items: buildMessages(allBuzzsproutPodcastEpisode),
+    items: buildMessages({allBuzzsproutPodcastEpisode, allPrismicVideo}),
     itemsPerPage: 5,
     pathPrefix: '/messages',
     component: path.resolve('./src/templates/messages.js'),

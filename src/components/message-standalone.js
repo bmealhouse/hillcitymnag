@@ -10,23 +10,15 @@ MessageStandalone.propTypes = {
   buzzsproutId: number.isRequired,
   slug: string.isRequired,
   title: string.isRequired,
-  publishedAt: string.isRequired,
+  date: string.isRequired,
   description: string,
 }
 
-function MessageStandalone({
-  buzzsproutId,
-  slug,
-  title,
-  publishedAt,
-  description,
-}) {
+function MessageStandalone({buzzsproutId, slug, title, date, description}) {
   return (
     <>
       <Title>{title}</Title>
-      <DatePublished>
-        {format(new Date(publishedAt), 'LLLL do, yyyy')}
-      </DatePublished>
+      <DatePublished>{format(new Date(date), 'LLLL do, yyyy')}</DatePublished>
       <HtmlContent
         css={`
           margin-bottom: ${rem(4)};

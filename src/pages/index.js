@@ -26,6 +26,9 @@ export default function Homepage({data}) {
     },
     messages: {edges: messages},
     events: {nodes: events},
+    video: {
+      edges: [video],
+    },
   } = data
 
   const eventsAndMessages = []
@@ -65,16 +68,18 @@ export default function Homepage({data}) {
       <Article highlight="even">
         <MissionStatement>{subheading.text}</MissionStatement>
       </Article>
-      <Article highlight="even">
-        <Video
-          allowFullScreen
-          title="Christmas Eve 2020"
-          src="https://player.vimeo.com/video/494255078"
-          allow="autoplay; fullscreen"
-          frameBorder="0"
-        />
-      </Article>
-      <Article highlight="odd">
+      {video && (
+        <Article highlight="even">
+          <Video
+            allowFullScreen
+            title={video.node.data.video.title}
+            src={`https://player.vimeo.com/video/${video.node.data.video.id}`}
+            allow="autoplay; fullscreen"
+            frameBorder="0"
+          />
+        </Article>
+      )}
+      <Article highlight={video ? 'odd' : 'even'}>
         <h3>Recent Messages & Events</h3>
         <RecentUpdates>
           {recentUpdates.map((item) => (
@@ -151,6 +156,22 @@ export const pageQuery = graphql`
             html
           }
           dateTime: date_time
+        }
+      }
+    }
+    video: allPrismicVideo(
+      filter: {data: {display_on_homepage: {eq: true}}}
+      sort: {fields: [data___video___upload_date], order: DESC}
+      limit: 1
+    ) {
+      edges {
+        node {
+          data {
+            video {
+              id: video_id
+              title
+            }
+          }
         }
       }
     }

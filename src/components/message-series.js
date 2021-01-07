@@ -16,7 +16,7 @@ MessageSeries.propTypes = {
       buzzsproutId: number.isRequired,
       slug: string.isRequired,
       title: string.isRequired,
-      publishedAt: string.isRequired,
+      date: string.isRequired,
       description: string,
     }).isRequired,
   ).isRequired,
@@ -30,7 +30,7 @@ function MessageSeries({name, messages}) {
     <>
       <Title>{selectedMessage.title}</Title>
       <DatePublished>
-        {format(new Date(selectedMessage.publishedAt), 'LLLL do, yyyy')}
+        {format(new Date(selectedMessage.date), 'LLLL do, yyyy')}
       </DatePublished>
       <HtmlContent
         css={`
@@ -66,7 +66,7 @@ function MessageSeries({name, messages}) {
                 <FontAwesomeIcon icon={faStarOfLife} />
               </td>
               <td>{message.title}</td>
-              <td>{format(new Date(message.publishedAt), 'L/d/yyyy')}</td>
+              <td>{format(new Date(message.date), 'L/d/yyyy')}</td>
               {!isMobile && (
                 <td>
                   {prettyMs(

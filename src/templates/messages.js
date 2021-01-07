@@ -7,6 +7,7 @@ import {
   Article,
   MessageSeries,
   MessageStandalone,
+  MessageVideo,
   Pagination,
 } from 'src/components'
 import {textShape} from 'src/utils'
@@ -26,12 +27,28 @@ Messages.propTypes = {
             buzzsproutId: number.isRequired,
             slug: string.isRequired,
             title: string.isRequired,
-            publishedAt: string.isRequired,
+            date: string.isRequired,
             duration: number.isRequired,
             description: string,
             tags: string,
           }).isRequired,
         }).isRequired,
+      ).isRequired,
+    }).isRequired,
+    allPrismicVideo: shape({
+      edges: arrayOf(
+        shape({
+          node: shape({
+            data: shape({
+              video: shape({
+                id: number.isRequired,
+                title: string.isRequired,
+                description: string,
+                date: string.isRequired,
+              }).isRequired,
+            }).isRequired,
+          }).isRequired,
+        }),
       ).isRequired,
     }).isRequired,
   }).isRequired,
@@ -46,13 +63,14 @@ function Messages({data, pageContext}) {
       data: {heading},
     },
     allBuzzsproutPodcastEpisode,
+    allPrismicVideo,
   } = data
 
   const startIndex = pageContext.pageNumber * 5
-  const messages = buildMessages(allBuzzsproutPodcastEpisode).slice(
-    startIndex,
-    startIndex + 5,
-  )
+  const messages = buildMessages({
+    allBuzzsproutPodcastEpisode,
+    allPrismicVideo,
+  }).slice(startIndex, startIndex + 5)
 
   return (
     <Layout>
@@ -67,6 +85,14 @@ function Messages({data, pageContext}) {
             highlight="even"
           >
             <MessageSeries {...message} />
+          </Article>
+        ) : message.type === 'MESSAGE_VIDEO' ? (
+          <Article
+            key={message.id}
+            id={message.title.toLowerCase().replace(/\s/g, '-')}
+            highlight="even"
+          >
+            <MessageVideo {...message} />
           </Article>
         ) : (
           <Article key={message.id} id={message.slug} highlight="even">
@@ -100,10 +126,24 @@ export const pageQuery = graphql`
           buzzsproutId
           slug
           title
-          publishedAt: published_at
+          date: published_at
           duration
           description
           tags
+        }
+      }
+    }
+    allPrismicVideo(sort: {fields: [data___video___upload_date], order: DESC}) {
+      edges {
+        node {
+          data {
+            video {
+              id: video_id
+              title
+              description
+              date: upload_date
+            }
+          }
         }
       }
     }
