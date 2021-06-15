@@ -4,7 +4,13 @@ import {Link, graphql} from 'gatsby'
 import styled from 'styled-components'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faAngleRight} from '@fortawesome/free-solid-svg-icons'
-import {Layout, H2Kicker, Article, HtmlContent} from 'src/components'
+import {
+  Layout,
+  H2Kicker,
+  Article,
+  HtmlContent,
+  Annoucement,
+} from 'src/components'
 import {textShape, rem, screens} from 'src/utils'
 
 Homepage.propTypes = {
@@ -65,11 +71,19 @@ export default function Homepage({data}) {
         <Title>{heading.text}</Title>
         <H2Kicker>{serviceTime.text}</H2Kicker>
       </hgroup>
-      <Article highlight="even">
+      <Article highlight="odd">
+        {Date.now() < new Date('07/05/2021').getTime() && (
+          <Annoucement>
+            All are welcome to CELEBRATING OUR FREEDOM gathering on Sunday, July
+            4, at 8am!
+          </Annoucement>
+        )}
+      </Article>
+      <Article highlight="odd">
         <MissionStatement>{subheading.text}</MissionStatement>
       </Article>
       {video && (
-        <Article highlight="even">
+        <Article highlight="odd">
           <Video
             allowFullScreen
             title={video.node.data.video.title}
@@ -79,7 +93,7 @@ export default function Homepage({data}) {
           />
         </Article>
       )}
-      <Article highlight={video ? 'odd' : 'even'}>
+      <Article highlight={video ? 'even' : 'odd'}>
         <h3>Recent Messages & Events</h3>
         <RecentUpdates>
           {recentUpdates.map((item) => (

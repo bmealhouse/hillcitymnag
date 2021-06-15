@@ -1,4 +1,5 @@
 // export * from './headings'
+export {default as Annoucement} from './announcement'
 export {default as Article} from './article'
 export {default as Container} from './container'
 export {default as H2Kicker} from './h2-kicker'
