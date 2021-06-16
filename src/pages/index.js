@@ -74,8 +74,8 @@ export default function Homepage({data}) {
       <Article highlight="odd">
         {Date.now() < new Date('07/05/2021').getTime() && (
           <Annoucement>
-            All are welcome to CELEBRATING OUR FREEDOM gathering on Sunday, July
-            4, at 8am!
+            All are welcome to &ldquo;CELEBRATING OUR FREEDOM&rdquo; gathering
+            on Sunday, July 4, at 8am!
           </Annoucement>
         )}
       </Article>
