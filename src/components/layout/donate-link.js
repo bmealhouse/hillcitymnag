@@ -3,26 +3,13 @@ import styled from 'styled-components'
 
 export default function DonateLink() {
   return (
-    <form
-      action="https://www.paypal.com/cgi-bin/webscr"
-      method="post"
-      target="_top"
-    >
-      <input name="cmd" type="hidden" value="_s-xclick" />
-      <input name="hosted_button_id" type="hidden" value="7SWTHCY3X9Z3E" />
-      <Button type="submit" value="Donate" />
-      <img
-        alt=""
-        src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif"
-        width="0"
-        height="0"
-      />
-    </form>
+    <ExternalLink href="https://tithe.ly/give?c=4633778" target="_blank">
+      Donate
+    </ExternalLink>
   )
 }
 
-const Button = styled.input`
-  cursor: pointer;
-  letter-spacing: -0.025em;
-  background-color: transparent;
+const ExternalLink = styled.a`
+  color: hsla(0, 0%, 0%, 0.8);
+  text-decoration: none;
 `

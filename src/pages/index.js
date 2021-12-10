@@ -9,9 +9,10 @@ import {
   H2Kicker,
   Article,
   HtmlContent,
-  Annoucement,
+  /* Annoucement, */
 } from 'src/components'
 import {textShape, rem, screens} from 'src/utils'
+import christmasEve2021 from './christmas-eve-2021.jpg'
 
 Homepage.propTypes = {
   data: shape({
@@ -71,16 +72,24 @@ export default function Homepage({data}) {
         <Title>{heading.text}</Title>
         <H2Kicker>{serviceTime.text}</H2Kicker>
       </hgroup>
-      <Article highlight="odd">
+      {/* <Article highlight="odd">
         {Date.now() < new Date('07/05/2021').getTime() && (
           <Annoucement>
             All are welcome to &ldquo;CELEBRATING OUR FREEDOM&rdquo; gathering
             on Sunday, July 4, at 8am!
           </Annoucement>
         )}
-      </Article>
-      <Article highlight="odd">
+      </Article> */}
+      <Article highlight="even">
         <MissionStatement>{subheading.text}</MissionStatement>
+      </Article>
+      <Article highlight="even">
+        {Date.now() < new Date('12/25/2021').getTime() && (
+          <img
+            src={christmasEve2021}
+            alt="Christmas Eve 2021 – Friday, December 24, 5pm"
+          />
+        )}
       </Article>
       {video && (
         <Article highlight="odd">
