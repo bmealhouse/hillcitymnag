@@ -66,6 +66,7 @@
     "@fullcalendar/react": "5.3.0",
     "@fullcalendar/rrule": "5.3.0",
     "@reach/skip-nav": "0.10.5",
+    "@vercel/node": "1.7.4",
     "date-fns": "2.15.0",
     "gatsby": "2.24.47",
     "gatsby-awesome-pagination": "0.3.6",
@@ -99,7 +100,6 @@
   },
   "devDependencies": {
     "@types/react": "16.9.46",
-    "@vercel/node": "1.7.4",
     "babel-eslint": "10.1.0",
     "babel-plugin-styled-components": "1.11.1",
     "cross-env": "7.0.2",
