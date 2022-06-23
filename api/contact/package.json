@@ -5,7 +5,7 @@
   "author": "Brent Mealhouse <bmealhouse@gmail.com>",
   "license": "MIT",
   "engines": {
-    "node": "12.x"
+    "node": "16.x"
   },
   "scripts": {
     "dev": "micro-dev",
