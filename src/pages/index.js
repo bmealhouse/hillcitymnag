@@ -12,7 +12,7 @@ import {
   /* Annoucement, */
 } from 'src/components'
 import {textShape, rem, screens} from 'src/utils'
-import christmasEve2021 from './christmas-eve-2021.jpg'
+import july3rd2022 from './july-3rd-2022.jpg'
 
 Homepage.propTypes = {
   data: shape({
@@ -84,10 +84,10 @@ export default function Homepage({data}) {
         <MissionStatement>{subheading.text}</MissionStatement>
       </Article>
       <Article highlight="even">
-        {Date.now() < new Date('12/25/2021').getTime() && (
+        {Date.now() < new Date('07/04/2022').getTime() && (
           <img
-            src={christmasEve2021}
-            alt="Christmas Eve 2021 – Friday, December 24, 5pm"
+            src={july3rd2022}
+            alt="Celebrate Our Freedom – Sunday, July 3rd, 10am"
           />
         )}
       </Article>
