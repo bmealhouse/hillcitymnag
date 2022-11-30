@@ -185,7 +185,7 @@ export const pageQuery = graphql`
       }
     }
     image: allPrismicImage(
-      filter: {data: {}}
+      filter: {data: {display_on_homepage: {eq: true}}}
       sort: {fields: last_publication_date, order: DESC}
       limit: 1
     ) {
