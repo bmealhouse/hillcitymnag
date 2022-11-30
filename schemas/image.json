@@ -1,0 +1,21 @@
+{
+  "Main": {
+    "image": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "Image"
+      }
+    },
+    "display_on_homepage": {
+      "type": "Boolean",
+      "config": {
+        "placeholder_false": "no",
+        "placeholder_true": "yes",
+        "default_value": true,
+        "label": "Display on homepage"
+      }
+    }
+  }
+}

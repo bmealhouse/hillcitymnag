@@ -12,7 +12,6 @@ import {
   /* Annoucement, */
 } from 'src/components'
 import {textShape, rem, screens} from 'src/utils'
-import july3rd2022 from './july-3rd-2022.jpg'
 
 Homepage.propTypes = {
   data: shape({
@@ -33,6 +32,9 @@ export default function Homepage({data}) {
     },
     messages: {edges: messages},
     events: {nodes: events},
+    image: {
+      edges: [image],
+    },
     video: {
       edges: [video],
     },
@@ -83,14 +85,14 @@ export default function Homepage({data}) {
       <Article highlight="even">
         <MissionStatement>{subheading.text}</MissionStatement>
       </Article>
-      <Article highlight="even">
-        {Date.now() < new Date('07/04/2022').getTime() && (
+      {image && (
+        <Article highlight="even">
           <img
-            src={july3rd2022}
-            alt="Celebrate Our Freedom – Sunday, July 3rd, 10am"
+            src={image.node.data.image.url}
+            alt={image.node.data.image.alt}
           />
-        )}
-      </Article>
+        </Article>
+      )}
       {video && (
         <Article highlight="odd">
           <Video
@@ -179,6 +181,22 @@ export const pageQuery = graphql`
             html
           }
           dateTime: date_time
+        }
+      }
+    }
+    image: allPrismicImage(
+      filter: {data: {}}
+      sort: {fields: last_publication_date, order: DESC}
+      limit: 1
+    ) {
+      edges {
+        node {
+          data {
+            image {
+              url
+              alt
+            }
+          }
         }
       }
     }
