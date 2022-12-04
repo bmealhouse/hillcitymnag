@@ -89,7 +89,7 @@ export default function Homepage({data}) {
         <Article highlight="even">
           <img
             src={image.node.data.image.url}
-            alt={image.node.data.image.alt}
+            alt="Homepage announcement image"
           />
         </Article>
       )}
@@ -194,7 +194,6 @@ export const pageQuery = graphql`
           data {
             image {
               url
-              alt
             }
           }
         }
