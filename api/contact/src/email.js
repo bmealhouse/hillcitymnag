@@ -20,13 +20,21 @@ module.exports = ({name, email, message}) => {
       },
     ],
     from: {
-      name,
+      email: 'noreply@bmealhouse.dev',
+      name, // : 'Hill City AOG',
+    },
+    replyTo: {
       email,
+      name,
     },
     content: [
       {
         type: 'text/plain',
-        value: message,
+        value: `
+Name: ${name}
+Email: ${email}
+
+${message}`,
       },
     ],
   }
