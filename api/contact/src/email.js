@@ -1,44 +1,17 @@
-const sg = require('sendgrid')(process.env.HCAG_SENDGRID_API_KEY)
+const sgMail = require('@sendgrid/mail')
 
-module.exports = ({name, email, message}) => {
-  const request = sg.emptyRequest()
+sgMail.setApiKey(process.env.HCAG_SENDGRID_API_KEY)
 
-  request.method = 'POST'
-  request.path = '/v3/mail/send'
-  request.body = {
-    personalizations: [
-      {
-        to: [
-          {
-            email:
-              email === 'bmealhouse@gmail.com'
-                ? email
-                : 'hillcityagchurch@gmail.com',
-          },
-        ],
-        subject: 'Message from https://www.hillcitymnag.church',
-      },
-    ],
-    from: {
-      email: 'noreply@bmealhouse.dev',
-      name, // : 'Hill City AOG',
-    },
-    replyTo: {
-      email,
-      name,
-    },
-    content: [
-      {
-        type: 'text/plain',
-        value: `
+module.exports = async ({name, email, message}) => {
+  await sgMail.send({
+    to: email === 'bmealhouse@gmail.com' ? email : 'hillcityagchurch@gmail.com',
+    from: `${name} <noreply@bmealhouse.dev>`,
+    replyTo: `${name} <${email.trim()}>`,
+    subject: 'Message from https://www.hillcitymnag.church',
+    text: `
 Name: ${name}
 Email: ${email}
 
 ${message}`,
-      },
-    ],
-  }
-
-  // eslint-disable-next-line new-cap
-  return sg.API(request)
+  })
 }
