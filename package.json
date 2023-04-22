@@ -7,7 +7,7 @@
   "author": "Brent Mealhouse <bmealhouse@gmail.com>",
   "license": "MIT",
   "engines": {
-    "node": "16.x"
+    "node": ">=18.x"
   },
   "husky": {
     "hooks": {
