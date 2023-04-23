@@ -12,8 +12,9 @@ Calendar.propTypes = {
   events: arrayOf(
     shape({
       title: string.isRequired,
-      start: string.isRequired,
       description: string,
+      start: string.isRequired,
+      end: string,
     }).isRequired,
   ),
 }
@@ -32,7 +33,10 @@ export default function Calendar({events}) {
         eventBorderColor="#18371b"
         eventDidMount={(info) => {
           const {
+            title,
             start,
+            end,
+            _def: {recurringDef},
             extendedProps: {description},
           } = info.event
 
@@ -43,15 +47,34 @@ export default function Calendar({events}) {
             year: 'numeric',
           })
 
-          const time = start.toLocaleTimeString('en-US', {
+          const startTime = start.toLocaleTimeString('en-US', {
             hour: 'numeric',
             minute: '2-digit',
           })
 
+          let endTime
+          if (end) {
+            endTime = end.toLocaleTimeString('en-US', {
+              hour: 'numeric',
+              minute: '2-digit',
+            })
+          } else if (recurringDef) {
+            // Recurring events to don't keep track of the event end time.
+            // We need to look up the event end time by title from the original
+            // events config.
+            const event = events.find((event) => event.title === title)
+            if (event?.end) {
+              endTime = new Date(event.end).toLocaleTimeString('en-US', {
+                hour: 'numeric',
+                minute: '2-digit',
+              })
+            }
+          }
+
           tippy(info.el, {
             content: `<h3>${info.event.title}</h3>${
-              description || `${date} @ ${time}`
-            }`,
+              description ? `${description}<br/>` : ''
+            }${`${date} @ ${startTime}${endTime ? ` - ${endTime}` : ''}`}`,
             allowHTML: true,
           })
         }}
