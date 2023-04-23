@@ -19,6 +19,7 @@ Events.propTypes = {
             title: textShape.isRequired,
             description: htmlShape.isRequired,
             dateTime: string.isRequired,
+            endDateTime: string,
             recurrenceFrequency: oneOf([
               'Daily',
               'Weekly',
@@ -53,9 +54,10 @@ function Events({data}) {
       <h1 css="margin-bottom: 0;">{heading.text}</h1>
       <Calendar
         events={events.nodes.map(({data: event}) => ({
-          title: event.title.text,
+          title: event.title.text.trim(),
+          description: event.description.html.trim(),
           start: event.dateTime,
-          description: event.description.html,
+          end: event.endDateTime,
           ...(event.recurrenceFrequency && {
             rrule: {
               freq: event.recurrenceFrequency,
@@ -90,6 +92,7 @@ export const pageQuery = graphql`
             html
           }
           dateTime: date_time
+          endDateTime: end_date_time
           recurrenceFrequency: recurrence_frequency
           recurrenceEndDate: recurrence_end_date
         }

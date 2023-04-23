@@ -21,6 +21,12 @@
         "label": "Date/time"
       }
     },
+    "end_date_time": {
+      "type": "Timestamp",
+      "config": {
+        "label": "End date/time"
+      }
+    },
     "display_on_homepage": {
       "type": "Boolean",
       "config": {
