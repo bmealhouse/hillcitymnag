@@ -6,9 +6,6 @@
   "repository": "https://github.com/bmealhouse/hillcitymnag.git",
   "author": "Brent Mealhouse <bmealhouse@gmail.com>",
   "license": "MIT",
-  "engines": {
-    "node": "16.x"
-  },
   "husky": {
     "hooks": {
       "pre-commit": "echo \"lint-staged\"",
