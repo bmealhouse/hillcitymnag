@@ -1,42 +1,36 @@
-# hillcitymnag
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-[![Build Status](https://travis-ci.com/bmealhouse/hillcitymnag.svg?branch=master)](https://travis-ci.com/bmealhouse/hillcitymnag)
-[![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/sindresorhus/xo)
-[![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
+## Getting Started
 
-> Monorepo for [https://www.hillcitymnag.church](https://www.hillcitymnag.church)
+First, run the development server:
 
-## Getting started
-
-### Installation
-
-```sh
-yarn && yarn dev
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
-## Scripts
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-### `yarn deploy`
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-Build & deploy the monorepo using [Now](https://zeit.co/now).<br>
-Deploys to staging environment only.
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-### `yarn deploy:prod`
+## Learn More
 
-Build & deploy the monorepo using [Now](https://zeit.co/now).<br>
-Depolys to staging environment and updates production aliases.
+To learn more about Next.js, take a look at the following resources:
 
-### `yarn dev`
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-Runs the monorepo in development using [now dev](https://zeit.co/blog/now-dev).<br>
-Automatically updates localhost when a code change is detected.
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-### `yarn dev:fe`
+## Deploy on Vercel
 
-Runs the frontend in development mode using [Next.js](https://nextjs.org/).<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-### `yarn test`
-
-Runs [Jest](https://jestjs.io/) tests across all workspaces using [Bolt](http://boltpkg.com/).<br>
-Code coverage report will also be included in command line output.
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
