@@ -1,0 +1,45 @@
+.mission {
+  margin-bottom: 0;
+  font-size: calc(5rem * var(--scale));
+  font-weight: 500;
+  font-style: italic;
+}
+
+.leftQuote {
+  position: absolute;
+  color: rgba(0, 0, 0, 0.075);
+  font-size: calc(30rem * var(--scale));
+  transform: translate(calc(-6rem * var(--scale)), calc(-8rem * var(--scale)));
+}
+
+.rightQuote {
+  position: absolute;
+  color: rgba(0, 0, 0, 0.075);
+  font-size: calc(30rem * var(--scale));
+  transform: translate(calc(-8rem * var(--scale)), calc(-2rem * var(--scale)));
+}
+
+.teamMember {
+  margin: calc(10rem * var(--scale)) 0;
+
+  @media (min-width: 640px) {
+    display: flex;
+  }
+}
+
+.teamMemberDetails {
+  margin-top: calc(4rem * var(--scale));
+
+  @media (min-width: 640px) {
+    margin: calc(10rem * var(--scale));
+  }
+}
+
+.name {
+  margin: 0;
+}
+
+.title {
+  margin: 0;
+  color: hsla(47, 21%, 15%, 0.5);
+}

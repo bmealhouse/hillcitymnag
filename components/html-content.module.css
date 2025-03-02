@@ -1,0 +1,14 @@
+.htmlContent {
+  margin-top: calc(4rem * var(--scale));
+
+  & p {
+    margin-bottom: calc(4rem * var(--scale));
+  }
+
+  & h3,
+  & h4,
+  & h5,
+  & h6 {
+    margin-top: calc(8rem * var(--scale));
+  }
+}

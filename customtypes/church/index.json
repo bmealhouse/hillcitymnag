@@ -1,0 +1,48 @@
+{
+  "id": "church",
+  "json": {
+    "Main": {
+      "heading": {
+        "type": "StructuredText",
+        "config": {
+          "single": "heading1",
+          "label": "Heading"
+        }
+      },
+      "subheading": {
+        "type": "StructuredText",
+        "config": {
+          "single": "heading2",
+          "label": "Subheading"
+        }
+      },
+      "sections": {
+        "type": "Group",
+        "config": {
+          "fields": {
+            "section_heading": {
+              "type": "StructuredText",
+              "config": {
+                "single": "heading3",
+                "label": "Section heading"
+              }
+            },
+            "section_content": {
+              "type": "StructuredText",
+              "config": {
+                "multi": "paragraph,heading4,heading5,heading6,strong,em,hyperlink,image,list-item,o-list-item,o-list-item",
+                "allowTargetBlank": true,
+                "label": "Section content"
+              }
+            }
+          },
+          "label": "Sections"
+        }
+      }
+    }
+  },
+  "label": "church",
+  "repeatable": false,
+  "status": true,
+  "format": "custom"
+}

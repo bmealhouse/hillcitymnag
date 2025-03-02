@@ -1,4 +1,4 @@
-export default {
+export const routeMap = {
   church: "/only-in-a-church",
   beliefs: "/beliefs",
   connect_children: "/connect/children",
@@ -6,6 +6,7 @@ export default {
   connect_adult: "/connect/adult",
   about_us: "/about-us",
   events: "/events",
-  messages: "/messages",
-  donate: null,
+  messages: "/messages/1",
+  sermons: "/messages/1",
+  // donate: null,
 };

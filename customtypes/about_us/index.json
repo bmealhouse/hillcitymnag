@@ -1,0 +1,68 @@
+{
+  "id": "about_us",
+  "json": {
+    "Main": {
+      "heading": {
+        "type": "StructuredText",
+        "config": {
+          "single": "heading1",
+          "label": "Heading"
+        }
+      },
+      "content": {
+        "type": "StructuredText",
+        "config": {
+          "multi": "paragraph,preformatted,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,list-item,o-list-item,o-list-item",
+          "allowTargetBlank": true,
+          "label": "Content"
+        }
+      },
+      "team_members_heading": {
+        "type": "StructuredText",
+        "config": {
+          "single": "heading2",
+          "label": "Team members heading"
+        }
+      },
+      "team_members": {
+        "type": "Group",
+        "config": {
+          "fields": {
+            "team_member_photo": {
+              "type": "Image",
+              "config": {
+                "constraint": {},
+                "thumbnails": [],
+                "label": "Team member photo"
+              }
+            },
+            "team_member_name": {
+              "type": "StructuredText",
+              "config": {
+                "single": "heading3",
+                "label": "Team member name"
+              }
+            },
+            "team_member_email": {
+              "type": "Text",
+              "config": {
+                "label": "Team member email"
+              }
+            },
+            "team_member_title": {
+              "type": "Text",
+              "config": {
+                "label": "Team member title"
+              }
+            }
+          },
+          "label": "Team members"
+        }
+      }
+    }
+  },
+  "label": "about_us",
+  "repeatable": false,
+  "status": true,
+  "format": "custom"
+}

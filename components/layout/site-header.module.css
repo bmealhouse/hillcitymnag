@@ -1,0 +1,125 @@
+.header {
+  & ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.headerContent {
+  position: relative;
+  display: flex;
+  padding: calc(3rem * var(--scale)) calc(5rem * var(--scale));
+  background-color: #fff;
+  z-index: 20;
+}
+
+.mobileMenu {
+  position: absolute;
+  width: 100%;
+  background-color: #fff;
+  transition: transform 250ms ease-in-out;
+  z-index: 10;
+
+  & > ul {
+    padding: calc(6rem * var(--scale));
+  }
+
+  @media (min-width: 640px) {
+    display: none;
+  }
+}
+
+.menuGroupWrapper {
+  position: relative;
+  margin-bottom: 0;
+  padding: 0 calc(4rem * var(--scale));
+}
+
+.menuGroup {
+  margin-bottom: calc(3rem * var(--scale));
+  color: rgba(0, 0, 0, 0.8);
+  font-size: var(--sm-rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  border-bottom: 2px solid hsla(47, 21%, 80%, 0.5);
+
+  @media (min-width: 640px) {
+    margin-bottom: 0;
+    border-bottom: 0;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.logo {
+  width: calc(16rem * var(--scale));
+  margin-bottom: 0;
+
+  @media (min-width: 640px) {
+    width: calc(20rem * var(--scale));
+  }
+}
+
+.menuWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-grow: 1;
+}
+
+.menu {
+  display: none;
+
+  @media (min-width: 640px) {
+    display: flex;
+  }
+}
+
+.menuToggle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: transparent;
+
+  @media (min-width: 640px) {
+    display: none;
+  }
+}
+
+.submenu {
+  & > ul {
+    margin-bottom: calc(6rem * var(--scale));
+
+    & > li {
+      margin-bottom: calc(2rem * var(--scale));
+      font-size: var(--sm-rem);
+      letter-spacing: -0.025em;
+    }
+  }
+
+  @media (min-width: 640px) {
+    position: fixed;
+    width: calc(32rem * var(--scale));
+    margin-top: calc(1rem * var(--scale));
+    padding: calc(3rem * var(--scale));
+    transform: translateX(calc(calc(-3rem * var(--scale)) - 2px));
+    border: 2px solid hsla(47, 21%, 80%, 0.5);
+    background-color: #fff;
+
+    & > ul {
+      margin-bottom: 0;
+
+      & > li:last-of-type {
+        margin: 0;
+      }
+    }
+  }
+}
+
+.link {
+  color: hsla(0, 0%, 0%, 0.8);
+  text-decoration: none;
+}

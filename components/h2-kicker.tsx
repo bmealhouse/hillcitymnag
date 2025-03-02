@@ -1,8 +1,11 @@
-"use client";
+import styles from "./h2-kicker.module.css";
 
-import styled from "styled-components";
+type Props = React.ComponentProps<"h2">;
 
-export default styled.h2`
-  margin-top: -20px;
-  color: hsla(47, 21%, 15%, 0.5);
-`;
+export function H2Kicker({ children, ...props }: Props) {
+  return (
+    <h2 {...props} className={styles.h2Kicker}>
+      {children}
+    </h2>
+  );
+}

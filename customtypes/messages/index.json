@@ -1,0 +1,24 @@
+{
+  "id": "messages",
+  "json": {
+    "Main": {
+      "heading": {
+        "type": "StructuredText",
+        "config": {
+          "single": "heading1",
+          "label": "Heading"
+        }
+      },
+      "deployment_increment": {
+        "type": "Number",
+        "config": {
+          "label": "Deployment increment"
+        }
+      }
+    }
+  },
+  "label": "messages",
+  "repeatable": false,
+  "status": true,
+  "format": "custom"
+}

@@ -1,0 +1,13 @@
+.title {
+  margin: 0;
+}
+
+.datePublished {
+  margin-bottom: calc(4rem * var(--scale));
+  color: hsla(47, 21%, 15%, 0.5);
+  font-size: var(--lg-rem);
+}
+
+.mediaPlayer {
+  height: 120px;
+}

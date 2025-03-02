@@ -1,0 +1,112 @@
+.footer {
+  padding: calc(6rem * var(--scale));
+  color: #fff;
+  background-color: #292929;
+
+  @media (min-width: 1024px) {
+    padding: calc(10rem * var(--scale));
+  }
+}
+
+.siteLinks {
+  padding-bottom: calc(6rem * var(--scale));
+
+  @media (min-width: 640px) {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding-bottom: 0;
+
+    & > section {
+      width: 33.333333%;
+      margin: 0;
+      padding: calc(8rem * var(--scale));
+    }
+  }
+}
+
+.section {
+  margin-top: calc(8rem * var(--scale));
+  margin-bottom: calc(8rem * var(--scale));
+
+  @media (min-width: 640px) {
+    padding-left: calc(8rem * var(--scale));
+    padding-right: calc(8rem * var(--scale));
+  }
+}
+
+.sectionTitle {
+  margin-bottom: calc(3rem * var(--scale));
+  color: hsla(47, 21%, 90%, 0.5);
+  font-size: var(--sm-rem);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.listItem {
+  margin-bottom: calc(2rem * var(--scale));
+  font-size: var(--sm-rem);
+  letter-spacing: -0.025em;
+
+  & > a {
+    color: #fff;
+    text-decoration: none;
+  }
+}
+
+.contactInfo {
+  @media (min-width: 768px) {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: no-wrap;
+    padding-bottom: calc(8rem * var(--scale));
+
+    & > section {
+      width: 33.333333%;
+      margin: 0;
+      padding: calc(3rem * var(--scale)) calc(8rem * var(--scale));
+      padding-right: 0;
+    }
+  }
+}
+
+.locationMap {
+  display: block;
+  height: 250px;
+  margin-right: calc(-6rem * var(--scale));
+  margin-left: calc(-6rem * var(--scale));
+  background-image: url("../../public/location-map.png");
+  background-position: center;
+  background-size: 150%;
+
+  @media (min-width: 640px) {
+    margin-right: calc(6rem * var(--scale));
+    margin-left: calc(6rem * var(--scale));
+    border: calc(2rem * var(--scale)) solid #393939;
+  }
+
+  @media (min-width: 768px) {
+    width: 66.666666%;
+    margin-right: 0;
+  }
+
+  @media (min-width: 1024px) {
+    width: calc(66.666666% - calc(6rem * var(--scale)));
+  }
+}
+
+.address {
+  font-size: var(--sm-rem);
+  font-style: normal;
+
+  & > p {
+    margin-bottom: calc(4rem * var(--scale));
+  }
+}
+
+.contactMethod {
+  display: block;
+  margin-bottom: calc(1rem * var(--scale));
+  font-size: var(--sm-rem);
+  overflow-wrap: normal;
+}

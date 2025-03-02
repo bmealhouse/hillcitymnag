@@ -1,0 +1,102 @@
+{
+  "id": "layout",
+  "json": {
+    "Main": {
+      "id": {
+        "type": "StructuredText",
+        "config": {
+          "single": "heading1",
+          "label": "ID"
+        }
+      },
+      "links": {
+        "type": "Group",
+        "config": {
+          "fields": {
+            "link_text": {
+              "type": "Text",
+              "config": {
+                "label": "Link text"
+              }
+            },
+            "link_route": {
+              "type": "Link",
+              "config": {
+                "select": "document",
+                "customtypes": [
+                  "beliefs",
+                  "about_us",
+                  "sermons",
+                  "events",
+                  "church",
+                  "connect_children",
+                  "connect_youth",
+                  "connect_adult",
+                  "messages"
+                ],
+                "label": "Link route"
+              }
+            },
+            "display_in_header": {
+              "type": "Boolean",
+              "config": {
+                "placeholder_false": "no",
+                "placeholder_true": "yes",
+                "default_value": true,
+                "label": "DIsplay in header"
+              }
+            },
+            "display_in_footer": {
+              "type": "Boolean",
+              "config": {
+                "placeholder_false": "no",
+                "placeholder_true": "yes",
+                "default_value": true,
+                "label": "Display in footer"
+              }
+            }
+          },
+          "label": "Links"
+        }
+      },
+      "name": {
+        "type": "StructuredText",
+        "config": {
+          "single": "paragraph",
+          "label": "Name"
+        }
+      },
+      "location": {
+        "type": "GeoPoint",
+        "config": {
+          "label": "Location"
+        }
+      },
+      "address": {
+        "type": "StructuredText",
+        "config": {
+          "single": "paragraph",
+          "label": "Address"
+        }
+      },
+      "email": {
+        "type": "StructuredText",
+        "config": {
+          "single": "paragraph",
+          "label": "Email"
+        }
+      },
+      "phone": {
+        "type": "StructuredText",
+        "config": {
+          "single": "paragraph",
+          "label": "Phone"
+        }
+      }
+    }
+  },
+  "label": "layout",
+  "repeatable": false,
+  "status": true,
+  "format": "custom"
+}

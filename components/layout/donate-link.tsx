@@ -1,16 +1,13 @@
-"use client";
+import styles from "./donate-link.module.css";
 
-import styled from "styled-components";
-
-export default function DonateLink() {
+export function DonateLink() {
   return (
-    <ExternalLink href="https://tithe.ly/give?c=4633778" target="_blank">
+    <a
+      className={styles.externalLink}
+      href="https://tithe.ly/give?c=4633778"
+      target="_blank"
+    >
       Donate
-    </ExternalLink>
+    </a>
   );
 }
-
-const ExternalLink = styled.a`
-  color: hsla(0, 0%, 0%, 0.8);
-  text-decoration: none;
-`;

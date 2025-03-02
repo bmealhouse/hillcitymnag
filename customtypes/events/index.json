@@ -1,0 +1,18 @@
+{
+  "id": "events",
+  "json": {
+    "Main": {
+      "heading": {
+        "type": "StructuredText",
+        "config": {
+          "single": "heading1",
+          "label": "Heading"
+        }
+      }
+    }
+  },
+  "label": "events",
+  "repeatable": false,
+  "status": true,
+  "format": "custom"
+}

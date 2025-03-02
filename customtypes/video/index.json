@@ -1,0 +1,26 @@
+{
+  "id": "video",
+  "json": {
+    "Main": {
+      "video": {
+        "type": "Embed",
+        "config": {
+          "label": "Video"
+        }
+      },
+      "display_on_homepage": {
+        "type": "Boolean",
+        "config": {
+          "placeholder_false": "no",
+          "placeholder_true": "yes",
+          "default_value": true,
+          "label": "Display on homepage"
+        }
+      }
+    }
+  },
+  "label": "video",
+  "repeatable": true,
+  "status": true,
+  "format": "custom"
+}

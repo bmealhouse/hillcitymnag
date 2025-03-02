@@ -1,7 +1,6 @@
-export default {
+const config = {
   ogLanguage: "en_US", // Facebook Language
   pathPrefix: "/", // Prefix for all links. If you deploy your site to example.com/portfolio your pathPrefix should be "portfolio"
-  skipNavId: "reach-skip-nav", // ID for the "Skip to content" a11y feature
   siteLanguage: "en", // Language Tag on <html> element
   title: "Hill City Assembly of God Church", // Navigation and Site Title
   titleAlt: "Hill City Assembly of God Church", // Title for JSONLD
@@ -22,3 +21,5 @@ export default {
   // facebook: '', // Facebook site name
   googleAnalyticsID: "UA-169609897-1",
 };
+
+export default config;

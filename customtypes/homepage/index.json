@@ -1,0 +1,32 @@
+{
+  "id": "homepage",
+  "json": {
+    "Main": {
+      "heading": {
+        "type": "StructuredText",
+        "config": {
+          "single": "heading1",
+          "label": "Heading"
+        }
+      },
+      "service_time": {
+        "type": "StructuredText",
+        "config": {
+          "single": "heading3",
+          "label": "Service time"
+        }
+      },
+      "subheading": {
+        "type": "StructuredText",
+        "config": {
+          "single": "heading2",
+          "label": "Subheading"
+        }
+      }
+    }
+  },
+  "label": "homepage",
+  "repeatable": false,
+  "status": true,
+  "format": "custom"
+}

@@ -1,0 +1,38 @@
+.article,
+.article_even,
+.article_odd {
+  margin-top: calc(10rem * var(--scale));
+  margin-bottom: calc(10rem * var(--scale));
+
+  & p:last-of-type {
+    margin-bottom: 0;
+  }
+}
+
+.article_even:nth-child(even) {
+  margin-right: calc(-6rem * var(--scale));
+  margin-left: calc(-6rem * var(--scale));
+  padding: calc(10rem * var(--scale)) calc(6rem * var(--scale));
+  background-color: hsla(47, 21%, 92%, 0.5);
+
+  @media (min-width: 1024px) {
+    margin-right: calc(-8rem * var(--scale));
+    margin-left: calc(-8rem * var(--scale));
+    padding-right: calc(8rem * var(--scale));
+    padding-left: calc(8rem * var(--scale));
+  }
+}
+
+.article_odd:nth-child(odd) {
+  margin-right: calc(-6rem * var(--scale));
+  margin-left: calc(-6rem * var(--scale));
+  padding: calc(10rem * var(--scale)) calc(6rem * var(--scale));
+  background-color: hsla(47, 21%, 92%, 0.5);
+
+  @media (min-width: 1024px) {
+    margin-right: calc(-8rem * var(--scale));
+    margin-left: calc(-8rem * var(--scale));
+    padding-right: calc(8rem * var(--scale));
+    padding-left: calc(8rem * var(--scale));
+  }
+}

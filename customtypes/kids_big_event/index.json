@@ -1,0 +1,22 @@
+{
+  "id": "kids_big_event",
+  "json": {
+    "Main": {
+      "kids_big_event_2022": {
+        "type": "Image",
+        "config": {
+          "constraint": {
+            "width": 697,
+            "height": 929
+          },
+          "thumbnails": [],
+          "label": "Kids Big Event 2022"
+        }
+      }
+    }
+  },
+  "label": "Kids Big Event",
+  "repeatable": false,
+  "status": false,
+  "format": "custom"
+}

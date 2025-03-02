@@ -1,19 +1,11 @@
-"use client";
+import styles from "./html-content.module.css";
 
-import styled from "styled-components";
-import { rem } from "@/lib/utils";
+type Props = React.ComponentProps<"div">;
 
-export default styled.div`
-  margin-top: ${rem(4)};
-
-  p {
-    margin-bottom: ${rem(4)};
-  }
-
-  h3,
-  h4,
-  h5,
-  h6 {
-    margin-top: ${rem(8)};
-  }
-`;
+export function HtmlContent({ children, ...props }: Props) {
+  return (
+    <div {...props} className={styles.htmlContent}>
+      {children}
+    </div>
+  );
+}

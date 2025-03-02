@@ -9,7 +9,7 @@ import { Helmet } from "react-helmet";
 import { format } from "date-fns";
 import prettyMs from "pretty-ms";
 import { HtmlContent } from "@/components";
-import { rem, screens, useMedia } from "@/lib/utils";
+import { useMedia } from "@/lib/utils";
 
 MessageSeries.propTypes = {
   name: string.isRequired,
@@ -26,7 +26,7 @@ MessageSeries.propTypes = {
 
 function MessageSeries({ name, messages }) {
   const [selectedMessage, setSelectedMessage] = useState(messages[0]);
-  const isMobile = useMedia([`(min-width: ${screens.sm})`], [false], true);
+  const isMobile = useMedia([`(min-width: 640px)`], [false], true);
 
   return (
     <>
@@ -36,7 +36,7 @@ function MessageSeries({ name, messages }) {
       </DatePublished>
       <HtmlContent
         css={`
-          margin-bottom: ${rem(4)};
+          margin-bottom: calc(4rem * var(--scale));
         `}
         dangerouslySetInnerHTML={{
           __html: selectedMessage.description,
@@ -92,9 +92,9 @@ const Title = styled.h2`
 `;
 
 const DatePublished = styled.span`
-  margin-bottom: ${rem(4)};
+  margin-bottom: calc(4rem * var(--scale));
   color: hsla(47, 21%, 15%, 0.5);
-  font-size: ${rem("lg")};
+  font-size: var(--lg-rem);
   font-weight: 700;
 `;
 
@@ -104,13 +104,13 @@ const MediaPlayer = styled.div`
 
 const SeriesTitle = styled.h3`
   margin: 0;
-  margin-top: ${rem(6)};
+  margin-top: calc(6rem * var(--scale));
   padding-bottom: 13.5px;
   border-bottom: 1px solid hsla(0, 0%, 0%, 0.12);
 `;
 
 const TableRow = styled.tr`
-  font-size: ${rem("sm")};
+  font-size: var(--sm-rem);
 
   svg {
     color: ${(props) =>

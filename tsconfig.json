@@ -13,11 +13,6 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ],
     "paths": {
       "@/*": ["./*"]
     }
@@ -26,11 +21,8 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    ".next/types/**/*.ts",
-    "lib/utils/use-media.js",
-    "components/layout/skip-nav-link.js",
-    "components/layout/contact-us.js",
-    "app/page.js"
+    "./prismicio.ts",
+    "./prismicio-types.d.ts"
   ],
   "exclude": ["node_modules"]
 }
